@@ -1,0 +1,11 @@
+dsh-memory-ladder
+Copyright (c) 2026 BTYG123
+
+This package extends @deepseek-ai/dsh-compaction-basic
+(https://www.npmjs.com/package/@deepseek-ai/dsh-compaction-basic), which is
+distributed under the MIT License and provides the compaction transaction used
+here: the bracket lock (compaction/start … compaction/end), shrink validation,
+and the surface replacement. This package replaces that backend's trigger policy
+and its summarize() hook, and does not redistribute upstream source.
+
+License text of this package: see LICENSE.
