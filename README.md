@@ -26,6 +26,47 @@ Memory Ladder 换一种组织方式：**让上下文按新旧分层，每层有�
 
 最新一轮与上一轮的比例因此稳定在 **2:1**。
 
+```mermaid
+flowchart LR
+  subgraph W["上下文窗口 T"]
+    direction LR
+    A["最新一轮<br/><b>T/3</b><br/>原始消息"]:::new
+    B["上一轮<br/>T/6<br/>摘要"]:::t1
+    C["上上轮<br/>T/12<br/>摘要"]:::t2
+    D["…<br/>T/(3·2^d)"]:::t3
+    E["归档链接<br/>≤ 2 行"]:::link
+  end
+  A --> B --> C --> D --> E
+  A -. "达到 T/3 触发睡眠" .-> S["sleep"]
+  classDef new fill:#1f6feb,color:#fff,stroke:#1f6feb
+  classDef t1 fill:#2d7d46,color:#fff,stroke:#2d7d46
+  classDef t2 fill:#7d6b2d,color:#fff,stroke:#7d6b2d
+  classDef t3 fill:#5a5a5a,color:#fff,stroke:#5a5a5a
+  classDef link fill:#3d3d3d,color:#fff,stroke:#3d3d3d
+```
+
+一次睡眠的完整链路：
+
+```mermaid
+sequenceDiagram
+  autonumber
+  participant A as Agent
+  participant M as Memory Ladder
+  participant L as 模型
+  participant S as 会话表面
+
+  A->>M: pre-step（本轮仍在累积）
+  M->>M: 最新一轮 ≥ T/3 ?
+  Note over M: 未达阈值 → 不动作
+  M->>M: 工具结果裁剪 + 重新测量
+  M->>L: 一次请求：旧阶梯 + 本轮原文
+  L-->>M: 新阶梯（旧 Tier0→Tier1，逐层下移）
+  M->>M: 校验摘要必须小于原文
+  M->>S: 表面替换为一条 checkpoint（surfaceOp: replace）
+  Note over S: 原始事件留在日志里，可回放
+  A->>L: 用新阶梯继续本轮
+```
+
 ### 一次「睡眠」发生什么
 
 1. 最新一轮的 token 数达到 `T/3`（或模型报告上下文溢出）；
