@@ -33,6 +33,7 @@
     "README.en.md",
     "LICENSE",
     "NOTICE",
+    "CHANGELOG.md",
     "docs/*.md"
   ],
   "dsh": {
