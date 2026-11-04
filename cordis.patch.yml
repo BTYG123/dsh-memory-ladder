@@ -1,0 +1,12 @@
+# Memory Ladder bundle patch.
+#
+# Two layers:
+#   1. disable the shipped compaction backend, because `ctx.compaction` accepts a
+#      single implementation and this bundle provides its own;
+#   2. insert this bundle's engine row.
+- id: compaction-basic
+  disabled: true
+- insert:
+    - id: memory-ladder
+      name: 'dsh-memory-ladder'
+      config: {}

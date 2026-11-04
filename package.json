@@ -1,0 +1,55 @@
+{
+  "name": "dsh-memory-ladder",
+  "version": "0.1.0",
+  "description": "Tiered \"sleep\" compaction backend for DeepSeek Harness: the newest round owns T/3 of the window, older tiers halve (T/6, T/12, …), and one model-written ladder replaces the shadowed history.",
+  "type": "module",
+  "license": "MIT",
+  "author": "BTYG123",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BTYG123/dsh-memory-ladder.git"
+  },
+  "homepage": "https://github.com/BTYG123/dsh-memory-ladder#readme",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "compaction",
+    "context",
+    "memory"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./lib/pure.js": "./lib/pure.js",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "lib/pure.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "docs/*.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node --test test/pure.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.5",
+    "@deepseek-ai/dsh-compaction": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-compaction-basic": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-llm": "0.2.1-rc.5",
+    "@deepseek-ai/schemastery": "^3.18.5"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Memory Ladder",
+    "description": "Tiered sleep compaction: the newest round owns T/3 of the window and every older tier halves."
+  }
+}
