@@ -95,8 +95,12 @@ sequenceDiagram
 这是一个 Harness **bundle**：包内自带 `cordis.patch.yml`，会停用官方压缩后端并插入自己的行。
 
 ```bash
-# 方式一：插件管理器（推荐）
-dsh plugin --profile <你的 profile> add dsh-memory-ladder
+# 前置条件：dsh 的插件命令依赖 pnpm
+npm i -g pnpm
+
+# 方式一：插件管理器（推荐，已实测）
+dsh plugin --profile <你的 profile> add git+https://github.com/BTYG123/dsh-memory-ladder.git
+# 装完会自动把 dsh-memory-ladder 加进该 profile 的 dsh.profile.bundles
 
 # 方式二：手动放进 profile 的 node_modules，然后自己在 patch 里加
 - id: compaction-basic
