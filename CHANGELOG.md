@@ -4,6 +4,50 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] — 2026-11-06
+
+### Added
+
+- Session-isolated original-text archive persisted before compaction commits, with stable message identities and restart recovery.
+- Source-weighted, bounded archival recall through Harness's logged dynamic-context channel, without request mutation or extra retrieval-model calls.
+- Bounded excerpts for large archived messages, with source offsets; explicit opt-out and archive-directory settings.
+- Actual Harness transaction and context-assembly integration tests, pinned v0.1.0 baseline, registered synthetic holdouts, cost accounting and auditable request/response evidence.
+
+### Fixed
+
+- `maxSummaryTokens` is an output ceiling instead of a lower bound. Tier allocation now accounts for that ceiling.
+- One compaction result corresponds to exactly one auxiliary model call; no hidden second summarization attempt.
+- Keep exact model output in the auxiliary call record, separately from the trimmed checkpoint summary.
+- Patched root Zod override with native compatibility replay; host applications still manage their own overrides.
+
+### Scope
+
+- Holdout evidence covers explicit compaction of synthetic records, not the complete automatic AgentLoop, real repository work or narrative quality. Accuracy gains and cost increases are both retained in the evidence.
+
+## [0.2.0] — 2026-11-06
+
+### Added
+
+- **Archive recall.** Before a sleep replaces history, the raw span is appended
+  to a session-isolated JSONL archive; every pre-step then recalls the entries
+  that lexically match the current request and injects them as *retrieved data*
+  with an explicit "not instructions, not independent evidence" notice.
+- `lib/archive.js` (archive store + recall ranking) with `archiveRecall`,
+  `archiveDirectory`, `recallMaxBytes` and `archiveMaxBytes` settings.
+- `bench/` evaluation harness and `docs/evidence/native-v1/`: 12 synthetic
+  cases x 8 questions x 4 arms x 2 models, published with checksums, a replay
+  path that needs no API access, and every failed sample listed.
+- `docs/EVALUATION.md` describing the protocol and its limits.
+
+### Fixed
+
+- **Sleep summarization keeps its retry and headroom.** This branch originally
+  dropped the second attempt and halved the output budget; on a
+  reasoning-heavy model the sleep request then hit `finish=max-tokens` with only
+  reasoning blocks and failed twice in three attempts. The two-attempt loop and
+  `min(16384, max(maxSummaryTokens, total + 2048))` are restored.
+- **Bounded archive growth.** `archiveMaxBytes` (default 32 MB per session)
+  stops appends instead of letting one long session fill the workspace.
 ## [0.1.0] — 2026-11-04
 
 First public release.

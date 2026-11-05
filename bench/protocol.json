@@ -1,0 +1,72 @@
+{
+  "version": "native-v1",
+  "baselineCommit": "f5a1cdf",
+  "budgetUSD": 10,
+  "developmentSeeds": [
+    17
+  ],
+  "holdoutSeeds": [
+    401,
+    402,
+    403,
+    404,
+    405,
+    406,
+    407,
+    408,
+    409,
+    410,
+    411,
+    412
+  ],
+  "arms": [
+    "original",
+    "capped-only",
+    "archive-recall",
+    "full"
+  ],
+  "compactionEveryRecords": 20,
+  "contextWindow": 32768,
+  "settings": {
+    "newestFraction": 0.03,
+    "tierCount": 4,
+    "minTierTokens": 50,
+    "maxSummaryTokens": 1024,
+    "recallMaxBytes": 4096
+  },
+  "models": [
+    {
+      "model": "deepseek-flash",
+      "baseUrl": "https://api.deepseek.com",
+      "keyEnv": "DEEPSEEK_API_KEY",
+      "inputPerMillion": 0.3,
+      "outputPerMillion": 1.2,
+      "parameters": {
+        "thinking": {
+          "type": "disabled"
+        },
+        "temperature": 0
+      }
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "baseUrl": "https://api.deepseek.com",
+      "keyEnv": "DEEPSEEK_API_KEY",
+      "inputPerMillion": 1.32,
+      "outputPerMillion": 3.96,
+      "parameters": {
+        "thinking": {
+          "type": "disabled"
+        },
+        "temperature": 0
+      }
+    }
+  ],
+  "releaseGate": {
+    "nativeTestsPass": true,
+    "quality": "archive-recall accuracy >= original for each model; report every per-case difference and failures",
+    "cost": "count all summary calls, answer calls, retries and failures; do not claim a cost improvement unless measured",
+    "claims": "synthetic task families; no claim of general intelligence or narrative superiority"
+  },
+  "fixtureHash": "d9f18f8a4c934392c6fe7189efae48e3fc3f4fedeb098d9792977e0ad84434cf"
+}

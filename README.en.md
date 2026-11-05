@@ -4,7 +4,21 @@
 
 English | [中文](README.md)
 
+## v0.2: original-text archive recall
+
+Before compaction, the plugin durably archives text from user, assistant and tool messages in a session-isolated local store. On the next pre-step it retrieves relevant original text that is no longer visible and contributes it through Harness's logged dynamic-context channel. It never mutates a frozen LLM request. System instructions, checkpoints and runtime snapshots are excluded. Old model answers are downweighted; ranking is not factual verification or a security boundary.
+
+New configuration: `archiveRecall` (default `true`), `archiveDirectory` (default `.dsh-memory-ladder`, relative to the session workspace), and `recallMaxBytes` (default `4096`, including the serialized envelope). Set `archiveRecall: false` to disable both archive writes and recall. Local archives contain plaintext; selected excerpts are sent to the configured model provider. The same session ID can resume its archive; forks with new IDs do not automatically inherit it. Large records may return a bounded, explicitly marked excerpt with source offsets.
+
+`maxSummaryTokens` is now an actual output ceiling, with one model call per sleep. Geometric tier budgets also fit inside that ceiling rather than exceeding it on large windows. The theoretical window fractions below are therefore additionally capped by summary-output capacity.
+
+See [evaluation methodology](docs/EVALUATION.md) and [native holdout results](docs/evidence/native-v1/RESULTS.md). The earlier standalone prototype's results are exploratory, not native-plugin release evidence. Recall may cost more than summary-only input; quality and cost claims are reported separately.
+
+On the registered synthetic holdouts, Flash improved from 76/96 to 90/96 and Pro from 84/96 to 91/96. Recall cost about 32%/31% more than the original and 28%/34% less than full history, which still scored96/96. Every residual error, one ablation failure, requests/responses and checksums are retained. This supports a measured quality/cost tradeoff under the tested compaction settings, not universal long-task or narrative superiority.
+
 ## Why
+
+The repository root pins a patched Zod `4.6.6` override and verifies compatibility against the recorded native requests. npm does not apply a dependency package's overrides to its host: when installed as a bundle, the Harness host still owns that dependency policy.
 
 Default compaction waits until the window is nearly full, then condenses the oldest span into one summary. Two problems follow:
 

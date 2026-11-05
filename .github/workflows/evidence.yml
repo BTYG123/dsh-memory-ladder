@@ -1,0 +1,30 @@
+name: published evidence
+
+# The native-v1 evidence is bound to the exact source and to the exact
+# `maxTokens` of every recorded call, so it only verifies against the commit
+# that produced it (f838773, the pre-release branch). Run this manually against
+# that commit; it is not a gate for new code.
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Commit to verify the evidence against
+        required: false
+        default: f8387739e313eea3c2cc6032ca551871f955472f
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: node bench/verify-evidence.js
+      - run: node bench/unpack-evidence.js
+      - run: node bench/replay.js --run-dir bench/runs/published-native-v1
