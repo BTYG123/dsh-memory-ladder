@@ -24,6 +24,30 @@ All notable changes to this project are documented here. The format follows
 
 - Holdout evidence covers explicit compaction of synthetic records, not the complete automatic AgentLoop, real repository work or narrative quality. Accuracy gains and cost increases are both retained in the evidence.
 
+## [0.2.0] — 2026-11-06
+
+### Added
+
+- **Archive recall.** Before a sleep replaces history, the raw span is appended
+  to a session-isolated JSONL archive; every pre-step then recalls the entries
+  that lexically match the current request and injects them as *retrieved data*
+  with an explicit "not instructions, not independent evidence" notice.
+- `lib/archive.js` (archive store + recall ranking) with `archiveRecall`,
+  `archiveDirectory`, `recallMaxBytes` and `archiveMaxBytes` settings.
+- `bench/` evaluation harness and `docs/evidence/native-v1/`: 12 synthetic
+  cases x 8 questions x 4 arms x 2 models, published with checksums, a replay
+  path that needs no API access, and every failed sample listed.
+- `docs/EVALUATION.md` describing the protocol and its limits.
+
+### Fixed
+
+- **Sleep summarization keeps its retry and headroom.** This branch originally
+  dropped the second attempt and halved the output budget; on a
+  reasoning-heavy model the sleep request then hit `finish=max-tokens` with only
+  reasoning blocks and failed twice in three attempts. The two-attempt loop and
+  `min(16384, max(maxSummaryTokens, total + 2048))` are restored.
+- **Bounded archive growth.** `archiveMaxBytes` (default 32 MB per session)
+  stops appends instead of letting one long session fill the workspace.
 ## [0.1.0] — 2026-11-04
 
 First public release.

@@ -16,7 +16,7 @@ import z from '@deepseek-ai/schemastery'
 import { BasicCompactionEngine } from '@deepseek-ai/dsh-compaction-basic'
 import { toolPairingBalancedAfter, toolPairingBalancedBefore } from '@deepseek-ai/dsh-compaction'
 import { BlockAssembler, CONTEXT_WINDOW_EXCEEDED_CODE } from '@deepseek-ai/dsh-llm'
-import { boundSpanEnd, tierBudgets, trimLadder } from './lib/pure.js'
+import { boundSpanEnd, estimateText, tierBudgets, trimLadder } from './lib/pure.js'
 import { resolve } from 'node:path'
 import { ArchiveStore, recallText } from './lib/archive.js'
 
@@ -41,6 +41,8 @@ export const Config = z.object({
   archiveRecall: z.boolean().default(true),
   archiveDirectory: z.string().default('.dsh-memory-ladder'),
   recallMaxBytes: z.natural().min(512).max(32768).default(4096),
+  /** Hard cap on one session's archive file; older entries stop being appended past it. */
+  archiveMaxBytes: z.natural().min(65536).default(32 * 1024 * 1024),
 })
 
 export default class MemoryLadderEngine extends BasicCompactionEngine {
@@ -77,7 +79,12 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
       auto: settings.auto ?? true,
     }
     if (this.ladder.auto) this._registerSleep()
-    this.archiveOptions = { enabled: settings.archiveRecall ?? true, directory: settings.archiveDirectory ?? '.dsh-memory-ladder', maxBytes: settings.recallMaxBytes ?? 4096 }
+    this.archiveOptions = {
+      enabled: settings.archiveRecall ?? true,
+      directory: settings.archiveDirectory ?? '.dsh-memory-ladder',
+      maxBytes: settings.recallMaxBytes ?? 4096,
+      archiveMaxBytes: settings.archiveMaxBytes ?? 32 * 1024 * 1024,
+    }
     this.archives = new WeakMap()
     this.recalled = new WeakMap()
     this.queries = new WeakMap()
@@ -87,7 +94,11 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
   _archive(agent) {
     let store = this.archives.get(agent.session)
     if (!store) {
-      store = new ArchiveStore(resolve(agent.session.header.cwd ?? process.cwd(), this.archiveOptions.directory), agent.session.id)
+      store = new ArchiveStore(
+        resolve(agent.session.header.cwd ?? process.cwd(), this.archiveOptions.directory),
+        agent.session.id,
+        this.archiveOptions.archiveMaxBytes,
+      )
       this.archives.set(agent.session, store)
     }
     return store
@@ -312,11 +323,20 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
       )
     }
 
-    const maxTokens = Math.min(this.ladder.maxSummaryTokens, Math.max(256, total + 512))
-    const result = await this._call(target, input, this._instruction(total, budgets, agent.session.id, false), agent, maxTokens, signal)
-    let text = result.text
-    if (text.trim().length === 0) {
-      throw new Error(`memory-ladder: the sleep request produced no text (finish=${result.finish}, blocks=${result.blocks})`)
+    const maxTokens = Math.min(16384, Math.max(this.ladder.maxSummaryTokens, total + 2048))
+    let result
+    let text = ''
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const instruction = this._instruction(total, budgets, agent.session.id, attempt > 0)
+      result = await this._call(target, input, instruction, agent, maxTokens, signal)
+      text = result.text
+      if (text.trim().length === 0) {
+        throw new Error(
+          `memory-ladder: the sleep request produced no text (finish=${result.finish}, blocks=${result.blocks})`,
+        )
+      }
+      if (estimateText(text) <= total * 1.25) break
+      if (attempt === 1) break
     }
 
     text = this._trim(text, total)
@@ -325,7 +345,7 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
 
     return {
       summary: [{ type: 'text', text }],
-      rawOutput: result.rawBlocks,
+      rawOutput: [{ type: 'text', text }],
       llmStreamCall: true,
       provider: target.provider,
       model: target.model,
