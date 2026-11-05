@@ -36,6 +36,17 @@ A manual compaction failure leaves the original surface intact. This benchmark a
 
 ## Reproduce
 
+To audit the published evidence **without credentials, network model calls or API charges**:
+
+```sh
+npm ci --ignore-scripts
+node bench/verify-evidence.js
+node bench/unpack-evidence.js
+node bench/replay.js --run-dir bench/runs/published-native-v1
+```
+
+This offline replay verifies final-code compatibility against recorded responses, not a new independent model-quality result. The unpack command refuses to overwrite an existing replay directory.
+
 Requires Node 22+ and the pinned peer dependencies:
 
 ```sh

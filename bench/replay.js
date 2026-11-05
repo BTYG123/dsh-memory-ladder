@@ -10,7 +10,8 @@ import Original from './baseline/index.js'
 import { nativeRuntime } from '../test/native-runtime.mjs'
 import { makeCase } from './cases.js'
 
-const directory = 'bench/runs/holdout-v1'
+const directoryIndex = process.argv.indexOf('--run-dir')
+const directory = directoryIndex < 0 ? 'bench/runs/holdout-v1' : process.argv[directoryIndex + 1]
 const report = JSON.parse(await readFile(join(directory, 'report.json'), 'utf8'))
 const root = await mkdtemp(join(tmpdir(), 'ladder-release-replay-'))
 const normalize = value => JSON.stringify(value)
