@@ -3,6 +3,18 @@
 Baseline: f5a1cdf. Protocol SHA-256: 13ebc4b135d4043fbc77b76330d3acb781a8efcbe64a043d0335248f678a04ee. Fixture SHA-256: d9f18f8a4c934392c6fe7189efae48e3fc3f4fedeb098d9792977e0ad84434cf.
 12 synthetic cases × 8 questions × 4 arms × 2 models. All runs and all errors are included. Development seed 17 is excluded.
 
+> **Measured commit: `f838773`, not the released tree.** These numbers were
+> produced by the exploration branch, including its reduced sleep budget
+> (`min(maxSummaryTokens, total + 512)`, single attempt). The released code
+> restores the two-attempt loop and `min(16384, max(maxSummaryTokens, total + 2048))`,
+> which changes the exact `maxTokens` of every recorded call. The recorded
+> evidence therefore verifies only against `f838773` (run the **published
+> evidence** workflow with that ref). The comparison below — archive recall
+> versus no recall at the same compaction rate — is still the reason the
+> feature exists, but it has not been re-measured against the released tree.
+> Re-running the harness is an open follow-up, not a claim.
+
+
 | Model | Arm | Correct | Accuracy | Cost USD | Compactions | Calls | Failed runs |
 |---|---|---:|---:|---:|---:|---:|---:|
 | deepseek-flash | original | 76/96 | 79.2% | 0.060327 | 54 | 150 | 0 |

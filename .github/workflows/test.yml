@@ -18,10 +18,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: npm
+      # npm ci installs the harness peer dependencies the native tests import.
       - run: npm ci --ignore-scripts
       - run: npm test
       - run: node --check index.js
-      - run: node bench/verify-evidence.js
-      - run: node bench/unpack-evidence.js
-      - run: node bench/replay.js --run-dir bench/runs/published-native-v1
       - run: npm pack --dry-run
