@@ -24,7 +24,10 @@ test('actual Harness transaction archives original messages and restores recall 
   runtime.append('继续冒险，保留最新消息。')
   const result = await runtime.engine.compactNow(runtime.agent, new AbortController().signal)
   assert.ok(result)
-  assert.ok(requested <= 512)
+  // `maxSummaryTokens` is a floor, not a cap: the sleep request keeps headroom
+  // above the ladder budget so a reasoning model can still emit text inside it.
+  assert.ok(requested >= 512, 'the configured value is a floor')
+  assert.ok(requested <= 16384, 'the request stays under the hard ceiling')
   assert.ok(!runtime.session.deriveMessages().some(m => m.id === secret.data.id))
   const recalled = await runtime.engine.recallFor(runtime.agent, '队伍的准确口令是什么？')
   assert.match(recalled, /月潮-824/u)
