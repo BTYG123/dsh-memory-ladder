@@ -1,17 +1,12 @@
-name: test
-
+name: tests
 on:
   push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
-  unit:
-    name: unit (node ${{ matrix.node }})
+  test:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -22,7 +17,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-      # No dependencies to install: lib/pure.js is dependency-free by design.
+          cache: npm
+      - run: npm ci --ignore-scripts
       - run: npm test
-      - name: syntax check the plugin entry
-        run: node --check index.js
+      - run: node --check index.js
+      - run: node bench/verify-evidence.js
+      - run: npm pack --dry-run

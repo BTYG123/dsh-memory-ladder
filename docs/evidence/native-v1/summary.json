@@ -1,0 +1,110 @@
+{
+  "protocolHash": "13ebc4b135d4043fbc77b76330d3acb781a8efcbe64a043d0335248f678a04ee",
+  "rows": [
+    {
+      "model": "deepseek-flash",
+      "arm": "original",
+      "cases": 12,
+      "correct": 76,
+      "total": 96,
+      "failedRuns": 0,
+      "cost": 0.06032669999999999,
+      "compactions": 54,
+      "calls": 150
+    },
+    {
+      "model": "deepseek-flash",
+      "arm": "capped-only",
+      "cases": 12,
+      "correct": 74,
+      "total": 96,
+      "failedRuns": 0,
+      "cost": 0.059827500000000006,
+      "compactions": 54,
+      "calls": 150
+    },
+    {
+      "model": "deepseek-flash",
+      "arm": "archive-recall",
+      "cases": 12,
+      "correct": 90,
+      "total": 96,
+      "failedRuns": 0,
+      "cost": 0.0796479,
+      "compactions": 54,
+      "calls": 150
+    },
+    {
+      "model": "deepseek-flash",
+      "arm": "full",
+      "cases": 12,
+      "correct": 96,
+      "total": 96,
+      "failedRuns": 0,
+      "cost": 0.11126040000000001,
+      "compactions": 0,
+      "calls": 96
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "original",
+      "cases": 12,
+      "correct": 84,
+      "total": 96,
+      "failedRuns": 0,
+      "cost": 0.24743532,
+      "compactions": 54,
+      "calls": 150
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "capped-only",
+      "cases": 12,
+      "correct": 74,
+      "total": 96,
+      "failedRuns": 1,
+      "cost": 0.22504284000000002,
+      "compactions": 49,
+      "calls": 138
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "archive-recall",
+      "cases": 12,
+      "correct": 91,
+      "total": 96,
+      "failedRuns": 0,
+      "cost": 0.32343299999999997,
+      "compactions": 54,
+      "calls": 150
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "full",
+      "cases": 12,
+      "correct": 96,
+      "total": 96,
+      "failedRuns": 0,
+      "cost": 0.48864288,
+      "compactions": 0,
+      "calls": 96
+    }
+  ],
+  "intervals": [
+    {
+      "model": "deepseek-flash",
+      "delta": 0.14583333333333334,
+      "low": 0.09375,
+      "high": 0.20833333333333334,
+      "cases": 12
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "delta": 0.07291666666666667,
+      "low": 0.03125,
+      "high": 0.11458333333333333,
+      "cases": 12
+    }
+  ],
+  "qualityGatePassed": true
+}

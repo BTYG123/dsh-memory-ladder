@@ -4,6 +4,26 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] — 2026-11-06
+
+### Added
+
+- Session-isolated original-text archive persisted before compaction commits, with stable message identities and restart recovery.
+- Source-weighted, bounded archival recall through Harness's logged dynamic-context channel, without request mutation or extra retrieval-model calls.
+- Bounded excerpts for large archived messages, with source offsets; explicit opt-out and archive-directory settings.
+- Actual Harness transaction and context-assembly integration tests, pinned v0.1.0 baseline, registered synthetic holdouts, cost accounting and auditable request/response evidence.
+
+### Fixed
+
+- `maxSummaryTokens` is an output ceiling instead of a lower bound. Tier allocation now accounts for that ceiling.
+- One compaction result corresponds to exactly one auxiliary model call; no hidden second summarization attempt.
+- Keep exact model output in the auxiliary call record, separately from the trimmed checkpoint summary.
+- Patched root Zod override with native compatibility replay; host applications still manage their own overrides.
+
+### Scope
+
+- Holdout evidence covers explicit compaction of synthetic records, not the complete automatic AgentLoop, real repository work or narrative quality. Accuracy gains and cost increases are both retained in the evidence.
+
 ## [0.1.0] — 2026-11-04
 
 First public release.

@@ -16,7 +16,9 @@ import z from '@deepseek-ai/schemastery'
 import { BasicCompactionEngine } from '@deepseek-ai/dsh-compaction-basic'
 import { toolPairingBalancedAfter, toolPairingBalancedBefore } from '@deepseek-ai/dsh-compaction'
 import { BlockAssembler, CONTEXT_WINDOW_EXCEEDED_CODE } from '@deepseek-ai/dsh-llm'
-import { boundSpanEnd, estimateText, tierBudgets, trimLadder } from './lib/pure.js'
+import { boundSpanEnd, tierBudgets, trimLadder } from './lib/pure.js'
+import { resolve } from 'node:path'
+import { ArchiveStore, recallText } from './lib/archive.js'
 
 export const name = 'memory-ladder'
 
@@ -36,6 +38,9 @@ export const Config = z.object({
   summarizationModel: z.string().default(''),
   /** Master switch for automatic sleep; manual `/compact` keeps working. */
   auto: z.boolean().default(true),
+  archiveRecall: z.boolean().default(true),
+  archiveDirectory: z.string().default('.dsh-memory-ladder'),
+  recallMaxBytes: z.natural().min(512).max(32768).default(4096),
 })
 
 export default class MemoryLadderEngine extends BasicCompactionEngine {
@@ -72,6 +77,46 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
       auto: settings.auto ?? true,
     }
     if (this.ladder.auto) this._registerSleep()
+    this.archiveOptions = { enabled: settings.archiveRecall ?? true, directory: settings.archiveDirectory ?? '.dsh-memory-ladder', maxBytes: settings.recallMaxBytes ?? 4096 }
+    this.archives = new WeakMap()
+    this.recalled = new WeakMap()
+    this.queries = new WeakMap()
+    if (this.archiveOptions.enabled) this._registerRecall()
+  }
+
+  _archive(agent) {
+    let store = this.archives.get(agent.session)
+    if (!store) {
+      store = new ArchiveStore(resolve(agent.session.header.cwd ?? process.cwd(), this.archiveOptions.directory), agent.session.id)
+      this.archives.set(agent.session, store)
+    }
+    return store
+  }
+
+  async recallFor(agent, query) {
+    if (!this.archiveOptions.enabled || !query.trim()) return ''
+    const archive = await this._archive(agent).load()
+    const visible = new Set(agent.session.deriveMessages().map(m => m.id))
+    return recallText(archive.entries, query, this.archiveOptions.maxBytes, visible)
+  }
+
+  _registerRecall() {
+    this.ctx.on('agent/pre-step', async ({ agent, messages, signal }, next) => {
+      this.recalled.delete(agent.session)
+      const query = (messages ?? []).filter(m => m.role === 'user' && m.source?.kind === 'user')
+        .flatMap(m => m.content.filter(b => b.type === 'text').map(b => b.text)).join('\n')
+      if (query) this.queries.set(agent.session, query)
+      if (!signal.aborted) {
+        try { this.recalled.set(agent.session, await this.recallFor(agent, this.queries.get(agent.session) ?? '')) }
+        catch (e) { this.ctx.logger.warn(`memory-ladder: recall unavailable: ${e.message}`) }
+      }
+      return next()
+    })
+    // Use the runtime's logged context channel; never mutate a frozen llm/stream request.
+    this.ctx.inject(['systemPrompt'], ctx => ctx.systemPrompt.context({
+      name: 'memory-ladder-recall', order: 900, interpolate: false, required: true,
+      text: ({ agent }) => agent ? this.recalled.get(agent.session) ?? '' : '',
+    }))
   }
 
   /** Register the between-step sleep check and one overflow recovery attempt. */
@@ -254,6 +299,8 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
 
   /** Summarizer hook: one model call that rewrites the shadowed span as a ladder. */
   async summarize(input, agent, signal) {
+    // Persist before replacing anything. A failed archive write must not discard the raw span.
+    if (this.archiveOptions.enabled) await this._archive(agent).remember(input.messages)
     const window = agent.session.requestContext()?.contextWindow ?? 0
     const budgets = this._tierBudgets(window)
     const total = budgets.reduce((sum, value) => sum + value, 0)
@@ -265,20 +312,11 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
       )
     }
 
-    const maxTokens = Math.min(16384, Math.max(this.ladder.maxSummaryTokens, total + 2048))
-    let result
-    let text = ''
-    for (let attempt = 0; attempt < 2; attempt += 1) {
-      const instruction = this._instruction(total, budgets, agent.session.id, attempt > 0)
-      result = await this._call(target, input, instruction, agent, maxTokens, signal)
-      text = result.text
-      if (text.trim().length === 0) {
-        throw new Error(
-          `memory-ladder: the sleep request produced no text (finish=${result.finish}, blocks=${result.blocks})`,
-        )
-      }
-      if (estimateText(text) <= total * 1.25) break
-      if (attempt === 1) break
+    const maxTokens = Math.min(this.ladder.maxSummaryTokens, Math.max(256, total + 512))
+    const result = await this._call(target, input, this._instruction(total, budgets, agent.session.id, false), agent, maxTokens, signal)
+    let text = result.text
+    if (text.trim().length === 0) {
+      throw new Error(`memory-ladder: the sleep request produced no text (finish=${result.finish}, blocks=${result.blocks})`)
     }
 
     text = this._trim(text, total)
@@ -287,7 +325,7 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
 
     return {
       summary: [{ type: 'text', text }],
-      rawOutput: [{ type: 'text', text }],
+      rawOutput: result.rawBlocks,
       llmStreamCall: true,
       provider: target.provider,
       model: target.model,
@@ -348,6 +386,7 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
       usage: assembler.usage,
       finish: finish === undefined ? 'none' : finish.kind,
       blocks: blocks.map((block) => block.type).join(','),
+      rawBlocks: blocks,
     }
   }
 
