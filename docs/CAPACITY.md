@@ -8,6 +8,8 @@ Build and resume run in different Node processes. Every recovered recall payload
 
 See [results and compressed evidence](evidence/capacity-v1/RESULTS.md). Regenerate on a fresh run directory:
 
+The follow-up [incremental index and long-task evaluation](LONG_TASKS.md) addresses the full-scan cost measured here; the original capacity results remain unchanged.
+
 ```sh
 node bench/capacity.js --phase build
 node bench/capacity.js --phase resume

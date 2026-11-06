@@ -21,5 +21,6 @@ jobs:
       # npm ci installs the harness peer dependencies the native tests import.
       - run: npm ci --ignore-scripts
       - run: npm test
+      - run: node bench/verify-long.js
       - run: node --check index.js
       - run: npm pack --dry-run

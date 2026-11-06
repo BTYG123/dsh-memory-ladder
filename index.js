@@ -108,7 +108,7 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
     if (!this.archiveOptions.enabled || !query.trim()) return ''
     const archive = await this._archive(agent).load()
     const visible = new Set(agent.session.deriveMessages().map(m => m.id))
-    return recallText(archive.entries, query, this.archiveOptions.maxBytes, visible)
+    return recallText(archive.entries, query, this.archiveOptions.maxBytes, visible, archive.index)
   }
 
   _registerRecall() {
