@@ -24,5 +24,7 @@ jobs:
       - run: node bench/verify-long.js
       - run: node bench/verify-token-gate.js
       - run: node bench/verify-compact-long.js
+      - run: node bench/verify-dense.js
+      - run: node bench/verify-dense.js --focused
       - run: node --check index.js
       - run: npm pack --dry-run

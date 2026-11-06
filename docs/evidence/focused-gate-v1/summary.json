@@ -1,0 +1,930 @@
+{
+  "manifest": {
+    "sourceHash": "65e51daf7b0fee5145b479a09de0b4a9cb0d8cf542f0c9c79390e19dd337f30e",
+    "fixtureHash": "4791deb46a3460957ee0bd8dfa8712a62c7e9fc917b50d42dd446d340d8de40a",
+    "files": [
+      "bench/focused-gate.js",
+      "bench/dense-fixture.js",
+      "bench/focused-protocol.json",
+      "lib/archive.js",
+      "lib/recall-wire.js",
+      "lib/focused-recall.js",
+      "bench/support/client.js",
+      "bench/protocol.json"
+    ],
+    "protocol": {
+      "version": "focused-gate-v1",
+      "seeds": [
+        9109,
+        10453
+      ],
+      "entities": 120,
+      "recordsPerEntity": 12,
+      "probesPerSeed": 16,
+      "models": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "arms": [
+        "baseline",
+        "compact",
+        "focused"
+      ],
+      "recallMaxBytes": 4096,
+      "maxOutputTokens": 256,
+      "trialAllocationUSD": 1,
+      "scoring": "Registered primary JSON answer accuracy plus separate factual-only score; all paired regressions, source coverage, skip errors and all call costs retained.",
+      "scope": "New seeds from the same dense template, selected after dense-v1 offline weaknesses were observed. Experimental identifier-scoped ranking and weighted long-record windows, fixed recall byte cap; no production changes, no independent-template generalization claim.",
+      "gate": "Do not change production defaults or claim statistical non-inferiority from this one exploratory run."
+    },
+    "initialSpent": 6.264317100000019,
+    "created": "2026-11-06T03:52:52.110Z"
+  },
+  "summary": [
+    {
+      "model": "deepseek-flash",
+      "arm": "baseline",
+      "total": 32,
+      "strictCorrect": 21,
+      "factualCorrect": 21,
+      "formatErrors": 0,
+      "inputTokens": 40445,
+      "outputTokens": 880,
+      "calls": 32,
+      "costUSD": 0.013189500000000002,
+      "factualRegressions": [],
+      "failures": [
+        {
+          "id": "9109-visible-arithmetic",
+          "expected": "66",
+          "answer": "73",
+          "raw": "{\"narrative\":\"依据最新正式裁决，燃料73为本轮结算余额。\",\"answer\":\"73\"}"
+        },
+        {
+          "id": "9109-current-password",
+          "expected": "霜-393688",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"缓存仅记录E87最初口令，未提供后续变更或当前口令。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "9109-tail-anchor",
+          "expected": "砂-486228",
+          "answer": "同一巡航记录内的潮汐",
+          "raw": "{\"narrative\":\"原始记录仅含重复的潮汐观测声明，末尾锚点需按原文截取。\",\"answer\":\"同一巡航记录内的潮汐\"}"
+        },
+        {
+          "id": "9109-alias-hop",
+          "expected": "林9116",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"归档仅记录最初保管员，无后续交接记录。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "9109-alias-rule",
+          "expected": "12",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"归档仅含MIST-9109-E35的俗称与最初保管员，未提供通行门槛。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "9109-joint",
+          "expected": "林9718|霜-393688|12",
+          "answer": "林9718|霜-393688|12票",
+          "raw": "{\"narrative\":\"依据正式交接第2次记录，当前保管员为林9718；口令与票数按最新正式修订核对。\",\"answer\":\"林9718|霜-393688|12票\"}"
+        },
+        {
+          "id": "10453-current-password",
+          "expected": "霜-451480",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"缓存仅记录E87最初口令，未提供后续变更或当前口令。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "10453-tail-anchor",
+          "expected": "砂-557460",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"检索到该航路记录，但仅见重复的潮汐观测说明，末尾锚点未显示。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "10453-alias-hop",
+          "expected": "林10460",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"归档仅记录最初保管员，无后续交接记录。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "10453-alias-rule",
+          "expected": "12",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"归档中仅有俗称与最初保管员记录，未含通行门槛。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "10453-joint",
+          "expected": "林11062|霜-451480|12",
+          "answer": "林11062|霜-451480|12票",
+          "raw": "{\"narrative\":\"依据正式交接第2次记录，林11062为当前保管员；口令与票数取最新正式修订。\",\"answer\":\"林11062|霜-451480|12票\"}"
+        }
+      ]
+    },
+    {
+      "model": "deepseek-flash",
+      "arm": "compact",
+      "total": 32,
+      "strictCorrect": 20,
+      "factualCorrect": 20,
+      "formatErrors": 1,
+      "inputTokens": 32314,
+      "outputTokens": 891,
+      "calls": 32,
+      "costUSD": 0.010763399999999996,
+      "factualRegressions": [
+        "10453-visible-arithmetic"
+      ],
+      "failures": [
+        {
+          "id": "9109-visible-arithmetic",
+          "expected": "66",
+          "answer": "73",
+          "raw": "{\"narrative\":\"依据最新正式裁决，燃料73为本轮结算余额。\",\"answer\":\"73\"}"
+        },
+        {
+          "id": "9109-current-password",
+          "expected": "霜-393688",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"缓存记录显示 E87 最初口令为藓-338686，但无后续变更记录。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "9109-tail-anchor",
+          "expected": "砂-486228",
+          "answer": "同一巡航记录内的潮汐",
+          "raw": "{\"narrative\":\"原始记录仅含重复的潮汐观测声明，末尾锚点需按原文截取。\",\"answer\":\"同一巡航记录内的潮汐\"}"
+        },
+        {
+          "id": "9109-alias-hop",
+          "expected": "林9116",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"归档仅显示最初保管员，缺少后续交接记录。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "9109-alias-rule",
+          "expected": "12",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"归档仅含MIST-9109-E35的俗称与最初保管员，未提供通行门槛。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "9109-joint",
+          "expected": "林9718|霜-393688|12",
+          "answer": "林9718|霜-393688|12票",
+          "raw": "{\"narrative\":\"缓存截止第1次交接，但归档中有第2次正式交接及口令、票数修订。\",\"answer\":\"林9718|霜-393688|12票\"}"
+        },
+        {
+          "id": "10453-visible-arithmetic",
+          "expected": "66",
+          "answer": "73",
+          "raw": "{\"narrative\":\"依据最新正式裁决，燃料73为本轮结算余额。\",\"answer\":\"73\"}"
+        },
+        {
+          "id": "10453-current-password",
+          "expected": "霜-451480",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"缓存记录显示E87最初口令为藓-388414，但无后续变更证据。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "10453-tail-anchor",
+          "expected": "砂-557460",
+          "answer": "同一巡航记录内的潮汐",
+          "raw": "{\"narrative\":\"原始记录末尾锚点已定位。\",\"answer\":\"同一巡航记录内的潮汐\"}"
+        },
+        {
+          "id": "10453-alias-hop",
+          "expected": "林10460",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"归档仅显示最初保管员，无后续交接记录。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "10453-alias-rule",
+          "expected": "12",
+          "raw": "UNKNOWN",
+          "error": "Unexpected token 'U', \"UNKNOWN\" is not valid JSON"
+        },
+        {
+          "id": "10453-joint",
+          "expected": "林11062|霜-451480|12",
+          "answer": "林11062|霜-451480|12票",
+          "raw": "{\"narrative\":\"缓存截止第1次交接，但归档记录显示第2次交接后林11062为当前保管员，口令与票数亦有正式更新。\",\"answer\":\"林11062|霜-451480|12票\"}"
+        }
+      ]
+    },
+    {
+      "model": "deepseek-flash",
+      "arm": "focused",
+      "total": 32,
+      "strictCorrect": 30,
+      "factualCorrect": 30,
+      "formatErrors": 0,
+      "inputTokens": 22016,
+      "outputTokens": 810,
+      "calls": 32,
+      "costUSD": 0.0075768,
+      "factualRegressions": [],
+      "failures": [
+        {
+          "id": "9109-joint",
+          "expected": "林9718|霜-393688|12",
+          "answer": "林9718|霜-393688|12票",
+          "raw": "{\"narrative\":\"以最新正式交接与口令变更为准，缓存截止声明不影响后续原始记录。\",\"answer\":\"林9718|霜-393688|12票\"}"
+        },
+        {
+          "id": "10453-joint",
+          "expected": "林11062|霜-451480|12",
+          "answer": "林11062|霜-451480|12票",
+          "raw": "{\"narrative\":\"缓存虽截止于第1次交接，但归档中已有第2次交接、口令变更和票数修订的正式记录。\",\"answer\":\"林11062|霜-451480|12票\"}"
+        }
+      ]
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "baseline",
+      "total": 32,
+      "strictCorrect": 18,
+      "factualCorrect": 20,
+      "formatErrors": 2,
+      "inputTokens": 40413,
+      "outputTokens": 1028,
+      "calls": 32,
+      "costUSD": 0.057416039999999995,
+      "factualRegressions": [],
+      "failures": [
+        {
+          "id": "9109-visible-arithmetic",
+          "expected": "66",
+          "answer": "73",
+          "raw": "{\"narrative\":\"最新正式裁决显示当前燃料73，本轮消耗7，结算余额即当前燃料。\",\"answer\":\"73\"}"
+        },
+        {
+          "id": "9109-fuel",
+          "expected": "282",
+          "raw": "282"
+        },
+        {
+          "id": "9109-current-rule",
+          "expected": "12",
+          "raw": "12"
+        },
+        {
+          "id": "9109-current-password",
+          "expected": "霜-393688",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"历史缓存中仅记录MIST-9109-E87最初访问口令为藓-338686，未提供当前访问口令。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "9109-tail-anchor",
+          "expected": "砂-486228",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"历史档案中仅有一条重复的航路记录，未提供末尾锚点原文。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "9109-alias-hop",
+          "expected": "林9116",
+          "answer": "岑9110",
+          "raw": "{\"narrative\":\"历史归档仅记录最初保管员岑9110，未提供后续交接或当前保管人信息。\",\"answer\":\"岑9110\"}"
+        },
+        {
+          "id": "9109-alias-rule",
+          "expected": "12",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"检索历史档案，未发现苇舟1193874当前通行门槛的票数记录。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "9109-joint",
+          "expected": "林9718|霜-393688|12",
+          "answer": "林9718|霜-393686|12",
+          "raw": "{\"narrative\":\"历史记录显示正式交接第2次后保管员为林9718，口令已变更为霜-393686，通行规则修订为12票。\",\"answer\":\"林9718|霜-393686|12\"}"
+        },
+        {
+          "id": "10453-visible-arithmetic",
+          "expected": "66",
+          "answer": "73",
+          "raw": "{\"narrative\":\"最新正式裁决显示燃料73，本轮消耗7，无其他变化。\",\"answer\":\"73\"}"
+        },
+        {
+          "id": "10453-current-password",
+          "expected": "霜-451480",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"历史缓存中仅记录最初访问口令，未提供当前访问口令的更新信息。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "10453-tail-anchor",
+          "expected": "砂-557460",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"历史档案中仅有一条相关事件，内容为重复声明同一巡航记录内的潮汐观测不构成新的出航或资源收支，未提供航路原始记录末尾的锚点原文。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "10453-alias-hop",
+          "expected": "林10460",
+          "answer": "岑10454",
+          "raw": "{\"narrative\":\"历史归档仅记录最初保管员，未提供后续交接或当前保管信息。\",\"answer\":\"岑10454\"}"
+        },
+        {
+          "id": "10453-alias-rule",
+          "expected": "12",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"检索历史记录，未发现苇舟1369938项目的当前通行门槛票数信息。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "10453-joint",
+          "expected": "林11062|霜-451480|12",
+          "answer": "林11062|霜-451480|12票",
+          "raw": "{\"narrative\":\"历史记录显示正式交接第2次后保管员为林11062，口令已变更为霜-451480，通行规则修订为12票。\",\"answer\":\"林11062|霜-451480|12票\"}"
+        }
+      ]
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "compact",
+      "total": 32,
+      "strictCorrect": 20,
+      "factualCorrect": 21,
+      "formatErrors": 1,
+      "inputTokens": 32282,
+      "outputTokens": 1140,
+      "calls": 32,
+      "costUSD": 0.047126640000000004,
+      "factualRegressions": [],
+      "failures": [
+        {
+          "id": "9109-visible-arithmetic",
+          "expected": "66",
+          "answer": "73",
+          "raw": "{\"narrative\":\"最新正式裁决给出当前燃料73、本轮消耗7，无其他变化，因此结算余额为73。\",\"answer\":\"73\"}"
+        },
+        {
+          "id": "9109-fuel",
+          "expected": "282",
+          "raw": "282"
+        },
+        {
+          "id": "9109-current-password",
+          "expected": "霜-393688",
+          "answer": "藓-338686",
+          "raw": "{\"narrative\":\"历史记录中 MIST-9109-E87 的最初访问口令为藓-338686，且无更新的当前裁决覆盖。\",\"answer\":\"藓-338686\"}"
+        },
+        {
+          "id": "9109-tail-anchor",
+          "expected": "砂-486228",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "raw": "{\"narrative\":\"历史记录中仅有一条用户原始记录，内容为重复声明同一巡航记录内的潮汐观测不构成新的出航或资源收支。\",\"answer\":\"同一巡航记录内的潮汐观测，不构成新的出航或资源收支。\"}"
+        },
+        {
+          "id": "9109-alias-hop",
+          "expected": "林9116",
+          "answer": "岑9110",
+          "raw": "{\"narrative\":\"归档仅记录最初保管员岑9110，无后续交接记录。\",\"answer\":\"岑9110\"}"
+        },
+        {
+          "id": "9109-alias-rule",
+          "expected": "12",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"检索历史记录，仅见E35注册俗称，无任何通行门槛票数信息。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "9109-joint",
+          "expected": "林9718|霜-393688|12",
+          "answer": "林9718|霜-393688|12票",
+          "raw": "{\"narrative\":\"核对正式记录：第1287条交接后保管员为林9718；第1047条口令变更为霜-393688；第927条通行要求为12票。\",\"answer\":\"林9718|霜-393688|12票\"}"
+        },
+        {
+          "id": "10453-visible-arithmetic",
+          "expected": "66",
+          "answer": "73",
+          "raw": "{\"narrative\":\"最新正式裁决给出当前燃料73、本轮消耗7，无其他变化，因此结算余额为73。\",\"answer\":\"73\"}"
+        },
+        {
+          "id": "10453-current-password",
+          "expected": "霜-451480",
+          "answer": "藓-388414",
+          "raw": "{\"narrative\":\"历史记录中E87最初访问口令为藓-388414，且缓存口令一致，无更新裁决。\",\"answer\":\"藓-388414\"}"
+        },
+        {
+          "id": "10453-tail-anchor",
+          "expected": "砂-557460",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"历史档案中仅有一条用户原始记录，内容为重复声明同一巡航记录内的潮汐观测不构成新的出航或资源收支，未提供其他锚点。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "10453-alias-hop",
+          "expected": "林10460",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"历史归档仅记录MIST-10453-E1最初保管员为岑10454，未提供后续交接或当前保管人信息。\",\"answer\":\"UNKNOWN\"}"
+        },
+        {
+          "id": "10453-alias-rule",
+          "expected": "12",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"检索历史记录，未发现任何关于项目通行门槛票数的信息。\",\"answer\":\"UNKNOWN\"}"
+        }
+      ]
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "focused",
+      "total": 32,
+      "strictCorrect": 26,
+      "factualCorrect": 29,
+      "formatErrors": 4,
+      "inputTokens": 21984,
+      "outputTokens": 982,
+      "calls": 32,
+      "costUSD": 0.0329076,
+      "factualRegressions": [
+        "10453-fuel"
+      ],
+      "failures": [
+        {
+          "id": "9109-visible-arithmetic",
+          "expected": "66",
+          "answer": "73",
+          "raw": "{\"narrative\":\"最新正式裁决给出当前燃料73且本轮消耗7，因此结算余额为73。\",\"answer\":\"73\"}"
+        },
+        {
+          "id": "9109-current-rule",
+          "expected": "12",
+          "raw": "12"
+        },
+        {
+          "id": "9109-alias-rule",
+          "expected": "12",
+          "raw": "12"
+        },
+        {
+          "id": "10453-visible-arithmetic",
+          "expected": "66",
+          "answer": "73",
+          "raw": "{\"narrative\":\"最新正式裁决给出当前燃料73，本轮消耗7，因此结算余额为73。\",\"answer\":\"73\"}"
+        },
+        {
+          "id": "10453-fuel",
+          "expected": "282",
+          "raw": "287 - 18 + 13 = 282",
+          "error": "Unexpected non-whitespace character after JSON at position 4 (line 1 column 5)"
+        },
+        {
+          "id": "10453-current-rule",
+          "expected": "12",
+          "raw": "12"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "id": "9109-visible-arithmetic",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-visible-arithmetic",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-visible-owner",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-visible-owner",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-stale-owner",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-stale-owner",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-original-owner",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-original-owner",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-fuel",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-fuel",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-current-rule",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-current-rule",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-negative",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-negative",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-old-password",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-old-password",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-current-password",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": false,
+      "factsCovered": false
+    },
+    {
+      "id": "9109-current-password",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-tail-anchor",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": false
+    },
+    {
+      "id": "9109-tail-anchor",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-alias-hop",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": false,
+      "factsCovered": false
+    },
+    {
+      "id": "9109-alias-hop",
+      "arm": "focused",
+      "linked": true,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-alias-rule",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": false,
+      "factsCovered": false
+    },
+    {
+      "id": "9109-alias-rule",
+      "arm": "focused",
+      "linked": true,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-joint",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-joint",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-unknown",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-unknown",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-cross-entity",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-cross-entity",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-fake-instruction",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "9109-fake-instruction",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-visible-arithmetic",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-visible-arithmetic",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-visible-owner",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-visible-owner",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-stale-owner",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-stale-owner",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-original-owner",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-original-owner",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-fuel",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-fuel",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-current-rule",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-current-rule",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-negative",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-negative",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-old-password",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-old-password",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-current-password",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": false,
+      "factsCovered": false
+    },
+    {
+      "id": "10453-current-password",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-tail-anchor",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": false
+    },
+    {
+      "id": "10453-tail-anchor",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-alias-hop",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": false,
+      "factsCovered": false
+    },
+    {
+      "id": "10453-alias-hop",
+      "arm": "focused",
+      "linked": true,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-alias-rule",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": false,
+      "factsCovered": false
+    },
+    {
+      "id": "10453-alias-rule",
+      "arm": "focused",
+      "linked": true,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-joint",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-joint",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-unknown",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-unknown",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-cross-entity",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-cross-entity",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-fake-instruction",
+      "arm": "baseline",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    },
+    {
+      "id": "10453-fake-instruction",
+      "arm": "focused",
+      "linked": false,
+      "idsCovered": true,
+      "factsCovered": true
+    }
+  ],
+  "accounting": {
+    "trialCostUSD": 0.16897998,
+    "cumulativeUSD": 6.433297080000021,
+    "limitUSD": 10
+  }
+}

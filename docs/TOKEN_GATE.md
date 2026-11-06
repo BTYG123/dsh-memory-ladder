@@ -21,6 +21,8 @@ Model-directed retrieval is deliberately not exposed as a production backend: th
 
 Measured in the fixed static comparison, compact input tokens fell about 23.7% for both models without a paired regression. Model-directed retrieval reduced input further but introduced two Flash errors on stale-state questions. In the subsequent native 120-turn/model run, compact retained 240/240 correct with 22.7–24.1% fewer total input+output tokens, including summary calls. These are samples on the stated synthetic tasks, not a statistical guarantee of general non-regression.
 
+The later [dense evidence and guarded retrieval study](DENSE_RECALL.md) found additional paired regressions and retrieval limits with many active facts. Its failures qualify the earlier simpler results. Guarded retrieval and the focused retriever remain research prototypes; neither changes this opt-in entry.
+
 The fixed protocol is `bench/token-gate-protocol.json`. Prepare the earlier `long-native-v2` runs, then run:
 
 ```sh
