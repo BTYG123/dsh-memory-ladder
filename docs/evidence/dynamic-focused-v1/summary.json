@@ -1,0 +1,862 @@
+{
+  "manifest": {
+    "sourceHash": "a9790ddad0049714f3a7952cbf8f780b215b59e9f77d70ecddbc45d17b4d13c4",
+    "seedHash": "231b7b20534653474f51dedf8f9b305e1ae86221c3173fbfe4e286c582ed23ce",
+    "files": [
+      "bench/dynamic-focused.js",
+      "bench/dynamic-plan.js",
+      "bench/dynamic-protocol.json",
+      "bench/dense-fixture.js",
+      "index.js",
+      "lib/archive.js",
+      "lib/compact-engine.js",
+      "lib/recall-wire.js",
+      "lib/focused-recall.js",
+      "bench/support/client.js",
+      "bench/support/storage.js",
+      "test/native-runtime.mjs",
+      "bench/protocol.json",
+      "package-lock.json"
+    ],
+    "protocol": {
+      "version": "dynamic-focused-v1",
+      "seed": 20399,
+      "entities": 120,
+      "phases": 3,
+      "turnsPerPhase": 30,
+      "arms": [
+        "compact",
+        "focused"
+      ],
+      "models": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "recallMaxBytes": 4096,
+      "contextWindow": 32768,
+      "trialAllocationUSD": 2.2,
+      "scope": "Four independently evolving real Harness Session trajectories. Seeded with previous 29.63MiB capacity archive plus dense 1440-event history; new host-accepted events, real compactions every ten turns and two process restores. Not the complete AgentLoop or autonomous world adjudication.",
+      "scoring": "Registered JSON exact answers, secondary full bare-answer audit, every failure retained. Explicit before/after balances. Host truth advances independently of model replies.",
+      "reference": "Every 30 turns verify rendered context against direct same-arm retrieval over the live archive; all source ranges and costs exported. No new production default."
+    },
+    "initialSpent": 6.433297080000021,
+    "created": "2026-11-06T04:11:06.559Z"
+  },
+  "summary": [
+    {
+      "id": "deepseek-flash-compact",
+      "model": "deepseek-flash",
+      "arm": "compact",
+      "strictCorrect": 70,
+      "factualCorrect": 70,
+      "total": 90,
+      "formatErrors": 0,
+      "inputTokens": 199279,
+      "outputTokens": 6590,
+      "costUSD": 0.06769169999999998,
+      "calls": 99,
+      "warmRecallP50Ms": 19.324100000001636,
+      "warmRecallP95Ms": 35.887000000000626,
+      "coldRecallMs": [
+        740.4645,
+        819.9330000000001,
+        758.3599
+      ],
+      "referenceChecks": 3,
+      "compactions": 9,
+      "compactionAttempts": 9,
+      "compactionErrors": [],
+      "restarts": [
+        {
+          "phase": 1,
+          "pid": 8872,
+          "resumed": false
+        },
+        {
+          "phase": 2,
+          "pid": 24180,
+          "resumed": true
+        },
+        {
+          "phase": 3,
+          "pid": 24204,
+          "resumed": true
+        }
+      ],
+      "archiveBytes": 32260455,
+      "windowExceeded": 0,
+      "perType": [
+        {
+          "type": "0",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "balance-before",
+          "correct": 5,
+          "total": 5
+        },
+        {
+          "type": "2",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "3",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "4",
+          "correct": 6,
+          "total": 9
+        },
+        {
+          "type": "5",
+          "correct": 4,
+          "total": 9
+        },
+        {
+          "type": "6",
+          "correct": 0,
+          "total": 9
+        },
+        {
+          "type": "7",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "8",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "9",
+          "correct": 6,
+          "total": 9
+        },
+        {
+          "type": "balance-after",
+          "correct": 4,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "turn": 5,
+          "type": "5",
+          "expected": "林20644",
+          "answer": "岑20434",
+          "raw": "{\"narrative\":\"苇舟2672864对应MIST-20399-E35，其最初保管员为岑20434；无后续交接裁决\",\"answer\":\"岑20434\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 6,
+          "type": "6",
+          "expected": "砂-1083670",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"E87航路记录末尾锚点需从原始记录确认\",\"answer\":\"UNKNOWN\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 9,
+          "type": "9",
+          "expected": "林20644|239|12|霜-877962",
+          "answer": "林20644|UNKNOWN|12|霜-877962",
+          "raw": "{\"narrative\":\"E35保管员为林20644；无余额记录；通行12票；当前口令霜-877962\",\"answer\":\"林20644|UNKNOWN|12|霜-877962\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 14,
+          "type": "4",
+          "expected": "藓-755428",
+          "answer": "藓-756378",
+          "raw": "{\"narrative\":\"E35最初口令历史不变，仍为藓-756378。\",\"answer\":\"藓-756378\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 15,
+          "type": "5",
+          "expected": "林21008",
+          "answer": "岑20486",
+          "raw": "{\"narrative\":\"苇舟2673748对应MIST-20399-E87，最初保管员岑20486；无后续交接裁决，故当前保管员仍为岑20486。\",\"answer\":\"岑20486\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 16,
+          "type": "6",
+          "expected": "砂-1084598",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"E119航路原始记录末尾锚点此前未确认，现有证据不足。\",\"answer\":\"UNKNOWN\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 19,
+          "type": "9",
+          "expected": "林21008|282|12|霜-879158",
+          "answer": "岑20486|UNKNOWN|12|霜-879158",
+          "raw": "{\"narrative\":\"E87保管员岑20486；通行12票；口令霜-879158；余额无任何裁决记录，UNKNOWN。\",\"answer\":\"岑20486|UNKNOWN|12|霜-879158\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 25,
+          "type": "5",
+          "expected": "林21232",
+          "answer": "岑20518",
+          "raw": "{\"narrative\":\"苇舟2674292对应MIST-20399-E119，最初保管员岑20518；无后续交接裁决。\",\"answer\":\"岑20518\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 26,
+          "type": "6",
+          "expected": "砂-1081176",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"E1航路原始记录末尾锚点未在现有证据中披露。\",\"answer\":\"UNKNOWN\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 29,
+          "type": "9",
+          "expected": "林21232|323|12|霜-879894",
+          "answer": "岑20518|UNKNOWN|12|霜-879894",
+          "raw": "{\"narrative\":\"E119：保管员岑20518（无后续交接）；资源裁决为出航3次后补充13燃料，未给初始余额，故余额UNKNOWN；通行12票（修订后）；当前口令霜-879894。\",\"answer\":\"岑20518|UNKNOWN|12|霜-879894\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 34,
+          "type": "4",
+          "expected": "藓-757024",
+          "answer": "霜-879894",
+          "raw": "{\"narrative\":\"E119最初口令历史不变，仍为霜-879894。\",\"answer\":\"霜-879894\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 36,
+          "type": "6",
+          "expected": "砂-1082162",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"E35航路原始记录末尾锚点未在任何正式裁决中披露，无法确定。\",\"answer\":\"UNKNOWN\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 45,
+          "type": "5",
+          "expected": "顾20430",
+          "answer": "顾20523",
+          "raw": "{\"narrative\":\"苇舟2672864即E1，最新正式交接-4由顾20523保管。\",\"answer\":\"顾20523\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 46,
+          "type": "6",
+          "expected": "砂-1083670",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"E87航路原始记录末尾锚点无正式裁决披露，证据不足。\",\"answer\":\"UNKNOWN\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 56,
+          "type": "6",
+          "expected": "砂-1084598",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"E119航路原始记录末尾锚点此前核查为UNKNOWN，无正式裁决披露。\",\"answer\":\"UNKNOWN\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 66,
+          "type": "6",
+          "expected": "砂-1081176",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"E1航路原始记录末尾锚点未在任何正式裁决中披露。\",\"answer\":\"UNKNOWN\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 74,
+          "type": "4",
+          "expected": "藓-757024",
+          "answer": "霜-879894",
+          "raw": "{\"narrative\":\"E119最初访问口令在历史记录中为霜-879894，后续口令裁决不改变最初口令历史。\",\"answer\":\"霜-879894\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 76,
+          "type": "6",
+          "expected": "砂-1082162",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"E35航路原始记录末尾锚点无任何正式裁决或记录披露，证据不足。\",\"answer\":\"UNKNOWN\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 85,
+          "type": "5",
+          "expected": "顾20554",
+          "answer": "顾20647",
+          "raw": "{\"narrative\":\"苇舟2672864即E1，最新正式交接-8由顾20647保管。\",\"answer\":\"顾20647\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 86,
+          "type": "6",
+          "expected": "砂-1083670",
+          "answer": "UNKNOWN",
+          "raw": "{\"narrative\":\"E87航路原始记录末尾锚点无正式裁决披露，证据不足。\",\"answer\":\"UNKNOWN\"}",
+          "factualCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "deepseek-flash-focused",
+      "model": "deepseek-flash",
+      "arm": "focused",
+      "strictCorrect": 88,
+      "factualCorrect": 88,
+      "total": 90,
+      "formatErrors": 0,
+      "inputTokens": 191752,
+      "outputTokens": 7113,
+      "costUSD": 0.0660612,
+      "calls": 99,
+      "warmRecallP50Ms": 143.87400000000343,
+      "warmRecallP95Ms": 797.0612000000037,
+      "coldRecallMs": [
+        139.10619999999994,
+        147.16240000000016,
+        136.39269999999988
+      ],
+      "referenceChecks": 3,
+      "compactions": 9,
+      "compactionAttempts": 9,
+      "compactionErrors": [],
+      "restarts": [
+        {
+          "phase": 1,
+          "pid": 8872,
+          "resumed": false
+        },
+        {
+          "phase": 2,
+          "pid": 24180,
+          "resumed": true
+        },
+        {
+          "phase": 3,
+          "pid": 24204,
+          "resumed": true
+        }
+      ],
+      "archiveBytes": 32261200,
+      "windowExceeded": 0,
+      "perType": [
+        {
+          "type": "0",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "balance-before",
+          "correct": 5,
+          "total": 5
+        },
+        {
+          "type": "2",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "3",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "4",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "5",
+          "correct": 8,
+          "total": 9
+        },
+        {
+          "type": "6",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "7",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "8",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "9",
+          "correct": 8,
+          "total": 9
+        },
+        {
+          "type": "balance-after",
+          "correct": 4,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "turn": 75,
+          "type": "5",
+          "expected": "顾20523",
+          "answer": "顾20399",
+          "raw": "{\"narrative\":\"苇舟2672286 即 MIST-20399-E1；最新正式交接-0 由顾20399保管，之后无新交接裁决。\",\"answer\":\"顾20399\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 79,
+          "type": "9",
+          "expected": "顾20523|194|9|桥-1244407",
+          "answer": "顾20399|198|5|桥-1244339",
+          "raw": "{\"narrative\":\"E1 最新状态：交接-0 后保管员顾20399；资源裁决-0 消耗前202、消耗4，余额198；通行裁决-0 为5票；口令裁决-0 为桥-1244339。\",\"answer\":\"顾20399|198|5|桥-1244339\"}",
+          "factualCorrect": false
+        }
+      ],
+      "regressions": [
+        75,
+        79
+      ]
+    },
+    {
+      "id": "deepseek-v4-pro-compact",
+      "model": "deepseek-v4-pro",
+      "arm": "compact",
+      "strictCorrect": 66,
+      "factualCorrect": 66,
+      "total": 90,
+      "formatErrors": 0,
+      "inputTokens": 215956,
+      "outputTokens": 8245,
+      "costUSD": 0.31771212000000004,
+      "calls": 99,
+      "warmRecallP50Ms": 19.7074000000066,
+      "warmRecallP95Ms": 35.95409999999538,
+      "coldRecallMs": [
+        726.4628,
+        777.4059,
+        767.8365000000001
+      ],
+      "referenceChecks": 3,
+      "compactions": 9,
+      "compactionAttempts": 9,
+      "compactionErrors": [],
+      "restarts": [
+        {
+          "phase": 1,
+          "pid": 8872,
+          "resumed": false
+        },
+        {
+          "phase": 2,
+          "pid": 24180,
+          "resumed": true
+        },
+        {
+          "phase": 3,
+          "pid": 24204,
+          "resumed": true
+        }
+      ],
+      "archiveBytes": 32261553,
+      "windowExceeded": 0,
+      "perType": [
+        {
+          "type": "0",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "balance-before",
+          "correct": 5,
+          "total": 5
+        },
+        {
+          "type": "2",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "3",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "4",
+          "correct": 7,
+          "total": 9
+        },
+        {
+          "type": "5",
+          "correct": 0,
+          "total": 9
+        },
+        {
+          "type": "6",
+          "correct": 0,
+          "total": 9
+        },
+        {
+          "type": "7",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "8",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "9",
+          "correct": 5,
+          "total": 9
+        },
+        {
+          "type": "balance-after",
+          "correct": 4,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "turn": 5,
+          "type": "5",
+          "expected": "林20644",
+          "answer": "岑20434",
+          "raw": "{\"narrative\":\"根据注册事件，MIST-20399-E35俗称苇舟2672864，最初保管员岑20434；当前无更新交接裁决。\",\"answer\":\"岑20434\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 6,
+          "type": "6",
+          "expected": "砂-1083670",
+          "answer": "潮汐",
+          "raw": "{\"narrative\":\"航路原始记录末尾唯一锚点为“潮汐”，该记录内潮汐观测不构成新的出航或资源收支。\",\"answer\":\"潮汐\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 9,
+          "type": "9",
+          "expected": "林20644|239|12|霜-877962",
+          "answer": "林20644|UNKNOWN|12|霜-877962",
+          "raw": "{\"narrative\":\"E35当前保管员为林20644；余额无记录；通行票数按正式修订为12票；当前口令为霜-877962。\",\"answer\":\"林20644|UNKNOWN|12|霜-877962\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 15,
+          "type": "5",
+          "expected": "林21008",
+          "answer": "岑20486",
+          "raw": "{\"narrative\":\"俗称苇舟2673748对应MIST-20399-E87，历史注册记录最初保管员为岑20486，未见新的正式交接裁决改变该保管关系。\",\"answer\":\"岑20486\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 16,
+          "type": "6",
+          "expected": "砂-1084598",
+          "answer": "潮汐",
+          "raw": "{\"narrative\":\"E119 航路原始记录末尾唯一锚点按记录为“潮汐”。\",\"answer\":\"潮汐\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 19,
+          "type": "9",
+          "expected": "林21008|282|12|霜-879158",
+          "answer": "林21008|UNKNOWN|12|霜-879158",
+          "raw": "{\"narrative\":\"E87 当前保管员为林21008；余额未见正式裁决记录；通行要求为12票；当前口令为霜-879158。\",\"answer\":\"林21008|UNKNOWN|12|霜-879158\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 24,
+          "type": "4",
+          "expected": "藓-756416",
+          "answer": "藓-756397",
+          "raw": "{\"narrative\":\"E87 最初访问口令在历史记录中为藓-756397，且最新口令裁决未改变最初口令历史。\",\"answer\":\"藓-756397\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 25,
+          "type": "5",
+          "expected": "林21232",
+          "answer": "岑20518",
+          "raw": "{\"narrative\":\"根据注册记录，俗称苇舟2674292对应 MIST-20399-E119，最初保管员岑20518；没有更新的正式交接裁决改变该保管关系。\",\"answer\":\"岑20518\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 26,
+          "type": "6",
+          "expected": "砂-1081176",
+          "answer": "潮汐",
+          "raw": "{\"narrative\":\"E1 航路原始记录末尾唯一锚点为潮汐。\",\"answer\":\"潮汐\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 29,
+          "type": "9",
+          "expected": "林21232|323|12|霜-879894",
+          "answer": "林21232|UNKNOWN|UNKNOWN|UNKNOWN",
+          "raw": "{\"narrative\":\"E119 当前保管员为林21232；余额和通行票数无正式裁决记录，当前口令无正式裁决记录。\",\"answer\":\"林21232|UNKNOWN|UNKNOWN|UNKNOWN\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 35,
+          "type": "5",
+          "expected": "顾20399",
+          "answer": "岑20400",
+          "raw": "{\"narrative\":\"俗称苇舟2672286 对应 MIST-20399-E1，历史注册记录最初保管员为岑20400，当前无更新交接裁决。\",\"answer\":\"岑20400\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 36,
+          "type": "6",
+          "expected": "砂-1082162",
+          "answer": "潮汐",
+          "raw": "{\"narrative\":\"E35 航路原始记录末尾唯一锚点为潮汐。\",\"answer\":\"潮汐\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 45,
+          "type": "5",
+          "expected": "顾20430",
+          "answer": "岑20434",
+          "raw": "{\"narrative\":\"俗称苇舟2672864 对应 MIST-20399-E35，最初保管员岑20434，后续无新交接裁决。\",\"answer\":\"岑20434\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 46,
+          "type": "6",
+          "expected": "砂-1083670",
+          "answer": "潮汐",
+          "raw": "{\"narrative\":\"E87 航路原始记录末尾唯一锚点为潮汐。\",\"answer\":\"潮汐\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 49,
+          "type": "9",
+          "expected": "顾20430|234|6|桥-1244356",
+          "answer": "岑20434|UNKNOWN|UNKNOWN|UNKNOWN",
+          "raw": "{\"narrative\":\"E35 当前保管员为岑20434；余额和通行票数无正式裁决记录，当前口令无正式裁决记录。\",\"answer\":\"岑20434|UNKNOWN|UNKNOWN|UNKNOWN\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 55,
+          "type": "5",
+          "expected": "顾20461",
+          "answer": "岑20486",
+          "raw": "{\"narrative\":\"根据注册记录，俗称苇舟2673748对应 MIST-20399-E87，最初保管员为岑20486；当前无更新的正式交接裁决改变该保管关系。\",\"answer\":\"岑20486\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 56,
+          "type": "6",
+          "expected": "砂-1084598",
+          "answer": "潮汐",
+          "raw": "{\"narrative\":\"E119 航路原始记录末尾唯一锚点为潮汐。\",\"answer\":\"潮汐\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 64,
+          "type": "4",
+          "expected": "藓-756416",
+          "answer": "藓-756397",
+          "raw": "{\"narrative\":\"E87 最初访问口令在历史事件中记录为藓-756397。\",\"answer\":\"藓-756397\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 65,
+          "type": "5",
+          "expected": "顾20492",
+          "answer": "岑20518",
+          "raw": "{\"narrative\":\"俗称苇舟2674292对应MIST-20399-E119，历史注册记录最初保管员为岑20518，未见更新交接裁决。\",\"answer\":\"岑20518\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 66,
+          "type": "6",
+          "expected": "砂-1081176",
+          "answer": "潮汐",
+          "raw": "{\"narrative\":\"E1 航路原始记录末尾唯一锚点按历史记录为潮汐。\",\"answer\":\"潮汐\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 75,
+          "type": "5",
+          "expected": "顾20523",
+          "answer": "岑20400",
+          "raw": "{\"narrative\":\"俗称苇舟2672286对应MIST-20399-E1，历史记录其最初保管员为岑20400，未出现新的正式交接裁决。\",\"answer\":\"岑20400\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 76,
+          "type": "6",
+          "expected": "砂-1082162",
+          "answer": "潮汐",
+          "raw": "{\"narrative\":\"E35 航路原始记录末尾唯一锚点为潮汐。\",\"answer\":\"潮汐\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 85,
+          "type": "5",
+          "expected": "顾20554",
+          "answer": "岑20434",
+          "raw": "{\"narrative\":\"俗称苇舟2672864对应MIST-20399-E35，历史记录中最初保管员为岑20434，未见新的正式交接裁决改变该保管关系。\",\"answer\":\"岑20434\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 86,
+          "type": "6",
+          "expected": "砂-1083670",
+          "answer": "潮汐",
+          "raw": "{\"narrative\":\"E87 航路原始记录末尾唯一锚点为潮汐。\",\"answer\":\"潮汐\"}",
+          "factualCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "deepseek-v4-pro-focused",
+      "model": "deepseek-v4-pro",
+      "arm": "focused",
+      "strictCorrect": 88,
+      "factualCorrect": 88,
+      "total": 90,
+      "formatErrors": 0,
+      "inputTokens": 202216,
+      "outputTokens": 8045,
+      "costUSD": 0.2987833200000002,
+      "calls": 99,
+      "warmRecallP50Ms": 143.51710000000094,
+      "warmRecallP95Ms": 842.7667000000001,
+      "coldRecallMs": [
+        133.0544,
+        132.7446,
+        141.02380000000005
+      ],
+      "referenceChecks": 3,
+      "compactions": 9,
+      "compactionAttempts": 9,
+      "compactionErrors": [],
+      "restarts": [
+        {
+          "phase": 1,
+          "pid": 8872,
+          "resumed": false
+        },
+        {
+          "phase": 2,
+          "pid": 24180,
+          "resumed": true
+        },
+        {
+          "phase": 3,
+          "pid": 24204,
+          "resumed": true
+        }
+      ],
+      "archiveBytes": 32261633,
+      "windowExceeded": 0,
+      "perType": [
+        {
+          "type": "0",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "balance-before",
+          "correct": 5,
+          "total": 5
+        },
+        {
+          "type": "2",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "3",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "4",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "5",
+          "correct": 8,
+          "total": 9
+        },
+        {
+          "type": "6",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "7",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "8",
+          "correct": 9,
+          "total": 9
+        },
+        {
+          "type": "9",
+          "correct": 8,
+          "total": 9
+        },
+        {
+          "type": "balance-after",
+          "correct": 4,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "turn": 19,
+          "type": "9",
+          "expected": "林21008|282|12|霜-879158",
+          "answer": "林21008|198|12|霜-879158",
+          "raw": "{\"narrative\":\"E87 当前保管员为林21008；余额为198；通行要求12票；当前口令为霜-879158。\",\"answer\":\"林21008|198|12|霜-879158\"}",
+          "factualCorrect": false
+        },
+        {
+          "turn": 85,
+          "type": "5",
+          "expected": "顾20554",
+          "answer": "顾20647",
+          "raw": "{\"narrative\":\"俗称苇舟2672864对应MIST-20399-E1，最新正式交接-8后保管员为顾20647。\",\"answer\":\"顾20647\"}",
+          "factualCorrect": false
+        }
+      ],
+      "regressions": []
+    }
+  ],
+  "clarity": [
+    {
+      "model": "deepseek-flash",
+      "correct": 24,
+      "total": 24
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "correct": 24,
+      "total": 24
+    }
+  ],
+  "accounting": {
+    "trajectoryCostUSD": 0.7502483400000002,
+    "clarityCostUSD": 0.0313044,
+    "cumulativeUSD": 7.2148498200000155,
+    "limitUSD": 10
+  }
+}

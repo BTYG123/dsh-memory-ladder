@@ -1,0 +1,15 @@
+{
+  "version": "dynamic-focused-v1",
+  "seed": 20399,
+  "entities": 120,
+  "phases": 3,
+  "turnsPerPhase": 30,
+  "arms": ["compact", "focused"],
+  "models": ["deepseek-flash", "deepseek-v4-pro"],
+  "recallMaxBytes": 4096,
+  "contextWindow": 32768,
+  "trialAllocationUSD": 2.2,
+  "scope": "Four independently evolving real Harness Session trajectories. Seeded with previous 29.63MiB capacity archive plus dense 1440-event history; new host-accepted events, real compactions every ten turns and two process restores. Not the complete AgentLoop or autonomous world adjudication.",
+  "scoring": "Registered JSON exact answers, secondary full bare-answer audit, every failure retained. Explicit before/after balances. Host truth advances independently of model replies.",
+  "reference": "Every 30 turns verify rendered context against direct same-arm retrieval over the live archive; all source ranges and costs exported. No new production default."
+}
