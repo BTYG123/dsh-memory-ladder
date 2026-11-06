@@ -1,6 +1,6 @@
 {
   "name": "dsh-memory-ladder",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Tiered \"sleep\" compaction backend for DeepSeek Harness: the newest round owns T/3 of the window, older tiers halve (T/6, T/12, …), and one model-written ladder replaces the shadowed history.",
   "type": "module",
   "license": "MIT",

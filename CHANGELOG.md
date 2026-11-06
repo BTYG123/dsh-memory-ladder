@@ -4,6 +4,29 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] — 2026-11-06
+
+Re-measured on the released code. No runtime behaviour changed.
+
+### Changed
+
+- `docs/evidence/native-v1/` regenerated from a full run of this tree
+  (96 runs, 1,080 request/response traces, offline replay 96/96, source
+  checksums taken from the released files). The previous package was measured
+  on `f838773`, which carried the discarded sleep budget.
+- Archive recall holds up on the released code: 93.8% vs 77.1% (deepseek-flash,
+  +16.7pp, bootstrap [8.3, 27.1]) and 96.9% vs 78.1% (deepseek-v4-pro, +18.8pp,
+  bootstrap [8.3, 33.3]) against the original engine. Cost is 29.6% / 47.1%
+  above the original arm and 30.0% / 32.6% below full history.
+- `bench/evidence.js` tolerates a batch that was not run instead of failing on a
+  missing development directory.
+
+### Note
+
+The deepseek-v4-pro original arm scored 78.1% in this run because one case
+(`404-original`) failed to compact an indivisible oversized record; that run
+counts as eight failed questions. Excluding it the arm is 85.2%, in line with
+the previous run.
 ## [0.2.0] — 2026-11-06
 
 ### Added
@@ -24,6 +47,29 @@ All notable changes to this project are documented here. The format follows
 
 - Holdout evidence covers explicit compaction of synthetic records, not the complete automatic AgentLoop, real repository work or narrative quality. Accuracy gains and cost increases are both retained in the evidence.
 
+## [0.2.1] — 2026-11-06
+
+Re-measured on the released code. No runtime behaviour changed.
+
+### Changed
+
+- `docs/evidence/native-v1/` regenerated from a full run of this tree
+  (96 runs, 1,080 request/response traces, offline replay 96/96, source
+  checksums taken from the released files). The previous package was measured
+  on `f838773`, which carried the discarded sleep budget.
+- Archive recall holds up on the released code: 93.8% vs 77.1% (deepseek-flash,
+  +16.7pp, bootstrap [8.3, 27.1]) and 96.9% vs 78.1% (deepseek-v4-pro, +18.8pp,
+  bootstrap [8.3, 33.3]) against the original engine. Cost is 29.6% / 47.1%
+  above the original arm and 30.0% / 32.6% below full history.
+- `bench/evidence.js` tolerates a batch that was not run instead of failing on a
+  missing development directory.
+
+### Note
+
+The deepseek-v4-pro original arm scored 78.1% in this run because one case
+(`404-original`) failed to compact an indivisible oversized record; that run
+counts as eight failed questions. Excluding it the arm is 85.2%, in line with
+the previous run.
 ## [0.2.0] — 2026-11-06
 
 ### Added

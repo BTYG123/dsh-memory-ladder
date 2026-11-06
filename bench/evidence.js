@@ -57,7 +57,9 @@ const releaseReplay = JSON.parse(await readFile(join(directory, 'release-replay.
 const developmentBatches = []
 for (const name of ['development-v1', 'release-smoke-v1']) {
   const path = resolve('bench/runs', name)
-  const developmentReport = JSON.parse(await readFile(join(path, 'report.json'), 'utf8'))
+  let developmentReport
+  try { developmentReport = JSON.parse(await readFile(join(path, 'report.json'), 'utf8')) }
+  catch (e) { if (e.code === 'ENOENT') continue; throw e }
   const developmentTraces = []
   for (const file of (await readdir(path)).filter(n => n.endsWith('.jsonl')).sort()) developmentTraces.push({ path: file, text: await readFile(join(path, file), 'utf8') })
   developmentBatches.push({ name, exploratory: true, report: developmentReport, traces: developmentTraces })
