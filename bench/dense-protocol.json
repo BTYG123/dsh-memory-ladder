@@ -1,0 +1,16 @@
+{
+  "version": "dense-gate-v1",
+  "seeds": [2027, 3253, 4591, 6829],
+  "entities": 120,
+  "recordsPerEntity": 12,
+  "probesPerSeed": 16,
+  "models": ["deepseek-flash", "deepseek-v4-pro"],
+  "arms": ["baseline", "compact", "model-choice", "guarded-choice"],
+  "recallMaxBytes": 4096,
+  "maxOutputTokens": 256,
+  "trialAllocationUSD": 1.8,
+  "guard": "If the public context freshness statement says later archives are unchecked, skip decision and retrieve. Otherwise ask the model; require retrieval before a direct UNKNOWN answer or after invalid JSON/answer schema. Never use gold answers or required source IDs in the guard.",
+  "scoring": "Registered primary JSON answer accuracy plus separate factual-only score; all paired regressions, source coverage, skip errors and all call costs retained.",
+  "scope": "Dense static paired contexts; 120 interleaved entities per seed, every record carries a fact or provenance/decoy. Long records include repeated observations to stress excerpt selection. No model-generated fixture or new dynamic trajectory. Known lexical multi-hop limits are intentionally included. Source list is bounded identically across arms; compact does not add facts.",
+  "gate": "Do not change production defaults or claim statistical non-inferiority from this one exploratory run."
+}

@@ -1,6 +1,6 @@
 {
   "name": "dsh-memory-ladder",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Tiered \"sleep\" compaction backend for DeepSeek Harness: the newest round owns T/3 of the window, older tiers halve (T/6, T/12, …), and one model-written ladder replaces the shadowed history.",
   "type": "module",
   "license": "MIT",
@@ -21,6 +21,7 @@
   ],
   "exports": {
     ".": "./index.js",
+    "./compact": "./lib/compact-engine.js",
     "./lib/pure.js": "./lib/pure.js",
     "./lib/archive.js": "./lib/archive.js",
     "./locale/*.json": "./locale/*.json"
@@ -29,6 +30,9 @@
     "index.js",
     "lib/pure.js",
     "lib/archive.js",
+    "lib/compact-engine.js",
+    "lib/recall-wire.js",
+    "lib/focused-recall.js",
     "cordis.patch.yml",
     "locale/*.json",
     "README.md",

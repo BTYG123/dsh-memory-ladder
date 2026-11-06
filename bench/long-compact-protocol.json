@@ -1,0 +1,19 @@
+{
+  "version": "long-compact-v1",
+  "phases": 3,
+  "turnsPerPhase": 40,
+  "models": [
+    "deepseek-flash",
+    "deepseek-v4-pro"
+  ],
+  "summaryEveryTurns": 10,
+  "seedArchive": "capacity-v1/scale-5000 (29.63 MiB)",
+  "recallMaxBytes": 4096,
+  "maxSummaryTokens": 1024,
+  "contextWindow": 32768,
+  "scope": "Real Harness Session, manual compaction transactions and prompt-context services; metered transport bridge; not the complete AgentLoop",
+  "truth": "Deterministic host-accepted world events; gold answers are never sent as scoring data. Model replies do not mutate canonical world state.",
+  "scoring": "Exact normalized factual answers; preserve all failures, compaction failures and context-window breaches. No narrative-quality claim.",
+  "budget": "Existing shared cumulative USD 10 ledger, no reset",
+  "change": "Same native long-task protocol with compact wire format only; compare full trajectory against long-native-v2, all new summary calls charged."
+}

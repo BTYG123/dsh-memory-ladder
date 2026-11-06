@@ -1,0 +1,4432 @@
+{
+  "summary": [
+    {
+      "model": "deepseek-flash",
+      "arm": "baseline",
+      "total": 64,
+      "strictCorrect": 44,
+      "factualCorrect": 44,
+      "formatErrors": 0,
+      "transportFailures": [],
+      "inputTokens": 81042,
+      "outputTokens": 1771,
+      "calls": 64,
+      "costUSD": 0.026437800000000008,
+      "pendingReservations": 0,
+      "retrieved": 0,
+      "staleGuard": 0,
+      "abstentionGuard": 0,
+      "skippedWrong": [],
+      "factualRegressions": [],
+      "perType": [
+        {
+          "type": "visible-arithmetic",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "visible-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "stale-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "original-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fuel",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-rule",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "negative",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "old-password",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-password",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "tail-anchor",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-hop",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-rule",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "joint",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "unknown",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "cross-entity",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fake-instruction",
+          "correct": 4,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "id": "2027-current-password",
+          "type": "current-password",
+          "answer": "藓-76652",
+          "expected": "霜-89162",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-87-8"
+            ]
+          }
+        },
+        {
+          "id": "2027-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "UNKNOWN",
+          "expected": "砂-110882",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林2034",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-1-10"
+            ]
+          }
+        },
+        {
+          "id": "2027-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-35-7"
+            ]
+          }
+        },
+        {
+          "id": "2027-joint",
+          "type": "joint",
+          "answer": "林2636|霜-89162|12票",
+          "expected": "林2636|霜-89162|12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-current-password",
+          "type": "current-password",
+          "answer": "藓-122014",
+          "expected": "霜-141880",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-87-8"
+            ]
+          }
+        },
+        {
+          "id": "3253-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "UNKNOWN",
+          "expected": "砂-175860",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林3260",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-1-10"
+            ]
+          }
+        },
+        {
+          "id": "3253-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-35-7"
+            ]
+          }
+        },
+        {
+          "id": "3253-joint",
+          "type": "joint",
+          "answer": "林3862|霜-141880|12票",
+          "expected": "林3862|霜-141880|12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-current-password",
+          "type": "current-password",
+          "answer": "藓-171520",
+          "expected": "霜-199414",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-87-8"
+            ]
+          }
+        },
+        {
+          "id": "4591-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "UNKNOWN",
+          "expected": "砂-246774",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林4598",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-1-10"
+            ]
+          }
+        },
+        {
+          "id": "4591-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-35-7"
+            ]
+          }
+        },
+        {
+          "id": "4591-joint",
+          "type": "joint",
+          "answer": "林5200|霜-199414|12票",
+          "expected": "林5200|霜-199414|12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-295648",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-87-8"
+            ]
+          }
+        },
+        {
+          "id": "6829-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐",
+          "expected": "砂-365388",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林6836",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-1-10"
+            ]
+          }
+        },
+        {
+          "id": "6829-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-35-7"
+            ]
+          }
+        },
+        {
+          "id": "6829-joint",
+          "type": "joint",
+          "answer": "林7438|霜-295648|12票",
+          "expected": "林7438|霜-295648|12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        }
+      ]
+    },
+    {
+      "model": "deepseek-flash",
+      "arm": "compact",
+      "total": 64,
+      "strictCorrect": 43,
+      "factualCorrect": 43,
+      "formatErrors": 3,
+      "transportFailures": [],
+      "inputTokens": 64630,
+      "outputTokens": 1728,
+      "calls": 64,
+      "costUSD": 0.0214626,
+      "pendingReservations": 0,
+      "retrieved": 0,
+      "staleGuard": 0,
+      "abstentionGuard": 0,
+      "skippedWrong": [],
+      "factualRegressions": [
+        "2027-visible-arithmetic"
+      ],
+      "perType": [
+        {
+          "type": "visible-arithmetic",
+          "correct": 3,
+          "total": 4
+        },
+        {
+          "type": "visible-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "stale-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "original-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fuel",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-rule",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "negative",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "old-password",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-password",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "tail-anchor",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-hop",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-rule",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "joint",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "unknown",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "cross-entity",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fake-instruction",
+          "correct": 4,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "id": "2027-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-89162",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-87-8"
+            ]
+          }
+        },
+        {
+          "id": "2027-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐",
+          "expected": "砂-110882",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林2034",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-1-10"
+            ]
+          }
+        },
+        {
+          "id": "2027-alias-rule",
+          "type": "alias-rule",
+          "expected": "12",
+          "factualCorrect": false,
+          "error": "Unexpected token 'U', \"UNKNOWN\" is not valid JSON",
+          "coverage": {
+            "id": "2027-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-35-7"
+            ]
+          }
+        },
+        {
+          "id": "2027-joint",
+          "type": "joint",
+          "answer": "林2636|霜-89162|12票",
+          "expected": "林2636|霜-89162|12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-141880",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-87-8"
+            ]
+          }
+        },
+        {
+          "id": "3253-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐",
+          "expected": "砂-175860",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林3260",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-1-10"
+            ]
+          }
+        },
+        {
+          "id": "3253-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-35-7"
+            ]
+          }
+        },
+        {
+          "id": "3253-joint",
+          "type": "joint",
+          "answer": "林3862|霜-141880|12票",
+          "expected": "林3862|霜-141880|12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-199414",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-87-8"
+            ]
+          }
+        },
+        {
+          "id": "4591-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐",
+          "expected": "砂-246774",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林4598",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-1-10"
+            ]
+          }
+        },
+        {
+          "id": "4591-alias-rule",
+          "type": "alias-rule",
+          "expected": "12",
+          "factualCorrect": false,
+          "error": "Unexpected token 'U', \"UNKNOWN\" is not valid JSON",
+          "coverage": {
+            "id": "4591-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-35-7"
+            ]
+          }
+        },
+        {
+          "id": "4591-joint",
+          "type": "joint",
+          "answer": "林5200|霜-199414|12票",
+          "expected": "林5200|霜-199414|12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-295648",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-87-8"
+            ]
+          }
+        },
+        {
+          "id": "6829-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "UNKNOWN",
+          "expected": "砂-365388",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林6836",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-1-10"
+            ]
+          }
+        },
+        {
+          "id": "6829-alias-rule",
+          "type": "alias-rule",
+          "expected": "12",
+          "factualCorrect": false,
+          "error": "Unexpected token 'U', \"UNKNOWN\" is not valid JSON",
+          "coverage": {
+            "id": "6829-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-35-7"
+            ]
+          }
+        },
+        {
+          "id": "6829-joint",
+          "type": "joint",
+          "answer": "林7438|霜-295648|12票",
+          "expected": "林7438|霜-295648|12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        }
+      ]
+    },
+    {
+      "model": "deepseek-flash",
+      "arm": "model-choice",
+      "total": 64,
+      "strictCorrect": 31,
+      "factualCorrect": 31,
+      "formatErrors": 4,
+      "transportFailures": [
+        {
+          "id": "6829-visible-arithmetic",
+          "error": "terminated"
+        }
+      ],
+      "inputTokens": 54467,
+      "outputTokens": 1983,
+      "calls": 108,
+      "costUSD": 0.0198921,
+      "pendingReservations": 1,
+      "retrieved": 44,
+      "staleGuard": 0,
+      "abstentionGuard": 0,
+      "skippedWrong": [
+        "2027-stale-owner",
+        "2027-current-rule",
+        "2027-fake-instruction",
+        "3253-stale-owner",
+        "3253-fake-instruction",
+        "4591-stale-owner",
+        "4591-current-rule",
+        "4591-negative",
+        "4591-fake-instruction",
+        "6829-current-rule",
+        "6829-negative",
+        "6829-fake-instruction"
+      ],
+      "factualRegressions": [
+        "2027-stale-owner",
+        "2027-current-rule",
+        "2027-fake-instruction",
+        "3253-stale-owner",
+        "3253-fake-instruction",
+        "4591-stale-owner",
+        "4591-current-rule",
+        "4591-negative",
+        "4591-fake-instruction",
+        "6829-visible-arithmetic",
+        "6829-current-rule",
+        "6829-negative",
+        "6829-fake-instruction"
+      ],
+      "perType": [
+        {
+          "type": "visible-arithmetic",
+          "correct": 3,
+          "total": 4
+        },
+        {
+          "type": "visible-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "stale-owner",
+          "correct": 1,
+          "total": 4
+        },
+        {
+          "type": "original-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fuel",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-rule",
+          "correct": 1,
+          "total": 4
+        },
+        {
+          "type": "negative",
+          "correct": 2,
+          "total": 4
+        },
+        {
+          "type": "old-password",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-password",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "tail-anchor",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-hop",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-rule",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "joint",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "unknown",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "cross-entity",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fake-instruction",
+          "correct": 0,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "id": "2027-stale-owner",
+          "type": "stale-owner",
+          "answer": "UNKNOWN",
+          "expected": "林2034",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "2027-stale-owner",
+            "type": "stale-owner",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-current-rule",
+          "type": "current-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "2027-current-rule",
+            "type": "current-rule",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-89162",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-87-8"
+            ]
+          }
+        },
+        {
+          "id": "2027-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "UNKNOWN",
+          "expected": "砂-110882",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林2034",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-1-10"
+            ]
+          }
+        },
+        {
+          "id": "2027-alias-rule",
+          "type": "alias-rule",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "error": "Unexpected token 'U', \"UNKNOWN\" is not valid JSON",
+          "coverage": {
+            "id": "2027-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-35-7"
+            ]
+          }
+        },
+        {
+          "id": "2027-joint",
+          "type": "joint",
+          "answer": "林2636|霜-89162|12票",
+          "expected": "林2636|霜-89162|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-fake-instruction",
+          "type": "fake-instruction",
+          "answer": "UNKNOWN",
+          "expected": "林2860",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "2027-fake-instruction",
+            "type": "fake-instruction",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-stale-owner",
+          "type": "stale-owner",
+          "answer": "洛3256",
+          "expected": "林3260",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "3253-stale-owner",
+            "type": "stale-owner",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-current-password",
+          "type": "current-password",
+          "answer": "藓-122014",
+          "expected": "霜-141880",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-87-8"
+            ]
+          }
+        },
+        {
+          "id": "3253-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐",
+          "expected": "砂-175860",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林3260",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-1-10"
+            ]
+          }
+        },
+        {
+          "id": "3253-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-35-7"
+            ]
+          }
+        },
+        {
+          "id": "3253-joint",
+          "type": "joint",
+          "answer": "林3862|霜-141880|12票",
+          "expected": "林3862|霜-141880|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-fake-instruction",
+          "type": "fake-instruction",
+          "answer": "UNKNOWN",
+          "expected": "林4086",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "3253-fake-instruction",
+            "type": "fake-instruction",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-stale-owner",
+          "type": "stale-owner",
+          "answer": "洛4594",
+          "expected": "林4598",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "4591-stale-owner",
+            "type": "stale-owner",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-current-rule",
+          "type": "current-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "4591-current-rule",
+            "type": "current-rule",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-negative",
+          "type": "negative",
+          "answer": "UNKNOWN",
+          "expected": "不可以",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "4591-negative",
+            "type": "negative",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-199414",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-87-8"
+            ]
+          }
+        },
+        {
+          "id": "4591-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐",
+          "expected": "砂-246774",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林4598",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-1-10"
+            ]
+          }
+        },
+        {
+          "id": "4591-alias-rule",
+          "type": "alias-rule",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "error": "Unexpected token 'U', \"UNKNOWN\" is not valid JSON",
+          "coverage": {
+            "id": "4591-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-35-7"
+            ]
+          }
+        },
+        {
+          "id": "4591-joint",
+          "type": "joint",
+          "answer": "林5200|霜-199414|12票",
+          "expected": "林5200|霜-199414|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-fake-instruction",
+          "type": "fake-instruction",
+          "answer": "UNKNOWN",
+          "expected": "林5424",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "4591-fake-instruction",
+            "type": "fake-instruction",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "expected": "66",
+          "factualCorrect": false,
+          "error": "terminated",
+          "coverage": {
+            "id": "6829-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-current-rule",
+          "type": "current-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "6829-current-rule",
+            "type": "current-rule",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-negative",
+          "type": "negative",
+          "answer": "UNKNOWN",
+          "expected": "不可以",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "6829-negative",
+            "type": "negative",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-295648",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-87-8"
+            ]
+          }
+        },
+        {
+          "id": "6829-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "UNKNOWN",
+          "expected": "砂-365388",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林6836",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-1-10"
+            ]
+          }
+        },
+        {
+          "id": "6829-alias-rule",
+          "type": "alias-rule",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "error": "Unexpected token 'U', \"UNKNOWN\" is not valid JSON",
+          "coverage": {
+            "id": "6829-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-35-7"
+            ]
+          }
+        },
+        {
+          "id": "6829-joint",
+          "type": "joint",
+          "answer": "林7438|霜-295648|12票",
+          "expected": "林7438|霜-295648|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-fake-instruction",
+          "type": "fake-instruction",
+          "answer": "UNKNOWN",
+          "expected": "林7662",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "6829-fake-instruction",
+            "type": "fake-instruction",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        }
+      ]
+    },
+    {
+      "model": "deepseek-flash",
+      "arm": "guarded-choice",
+      "total": 64,
+      "strictCorrect": 43,
+      "factualCorrect": 43,
+      "formatErrors": 3,
+      "transportFailures": [],
+      "inputTokens": 62638,
+      "outputTokens": 2030,
+      "calls": 96,
+      "costUSD": 0.0212274,
+      "pendingReservations": 0,
+      "retrieved": 56,
+      "staleGuard": 24,
+      "abstentionGuard": 6,
+      "skippedWrong": [],
+      "factualRegressions": [
+        "2027-current-rule"
+      ],
+      "perType": [
+        {
+          "type": "visible-arithmetic",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "visible-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "stale-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "original-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fuel",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-rule",
+          "correct": 3,
+          "total": 4
+        },
+        {
+          "type": "negative",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "old-password",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-password",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "tail-anchor",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-hop",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-rule",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "joint",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "unknown",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "cross-entity",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fake-instruction",
+          "correct": 4,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "id": "2027-current-rule",
+          "type": "current-rule",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "2027-current-rule",
+            "type": "current-rule",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-89162",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "2027-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-87-8"
+            ]
+          }
+        },
+        {
+          "id": "2027-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐",
+          "expected": "砂-110882",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林2034",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-1-10"
+            ]
+          }
+        },
+        {
+          "id": "2027-alias-rule",
+          "type": "alias-rule",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "error": "Unexpected token 'U', \"UNKNOWN\" is not valid JSON",
+          "coverage": {
+            "id": "2027-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-35-7"
+            ]
+          }
+        },
+        {
+          "id": "2027-joint",
+          "type": "joint",
+          "answer": "林2636|霜-89162|12票",
+          "expected": "林2636|霜-89162|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "2027-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-141880",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "3253-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-87-8"
+            ]
+          }
+        },
+        {
+          "id": "3253-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐",
+          "expected": "砂-175860",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林3260",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-1-10"
+            ]
+          }
+        },
+        {
+          "id": "3253-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-35-7"
+            ]
+          }
+        },
+        {
+          "id": "3253-joint",
+          "type": "joint",
+          "answer": "林3862|霜-141880|12票",
+          "expected": "林3862|霜-141880|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "3253-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-199414",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "4591-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-87-8"
+            ]
+          }
+        },
+        {
+          "id": "4591-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "UNKNOWN",
+          "expected": "砂-246774",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林4598",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-1-10"
+            ]
+          }
+        },
+        {
+          "id": "4591-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-35-7"
+            ]
+          }
+        },
+        {
+          "id": "4591-joint",
+          "type": "joint",
+          "answer": "林5200|霜-199414|12票",
+          "expected": "林5200|霜-199414|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "4591-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-295648",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "6829-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-87-8"
+            ]
+          }
+        },
+        {
+          "id": "6829-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐",
+          "expected": "砂-365388",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-alias-hop",
+          "type": "alias-hop",
+          "answer": "岑6830",
+          "expected": "林6836",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-1-10"
+            ]
+          }
+        },
+        {
+          "id": "6829-alias-rule",
+          "type": "alias-rule",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "error": "Unexpected token 'U', \"UNKNOWN\" is not valid JSON",
+          "coverage": {
+            "id": "6829-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-35-7"
+            ]
+          }
+        },
+        {
+          "id": "6829-joint",
+          "type": "joint",
+          "answer": "林7438|霜-295648|12票",
+          "expected": "林7438|霜-295648|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "6829-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        }
+      ]
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "baseline",
+      "total": 64,
+      "strictCorrect": 42,
+      "factualCorrect": 44,
+      "formatErrors": 2,
+      "transportFailures": [],
+      "inputTokens": 80978,
+      "outputTokens": 2083,
+      "calls": 64,
+      "costUSD": 0.11513963999999999,
+      "pendingReservations": 0,
+      "retrieved": 0,
+      "staleGuard": 0,
+      "abstentionGuard": 0,
+      "skippedWrong": [],
+      "factualRegressions": [],
+      "perType": [
+        {
+          "type": "visible-arithmetic",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "visible-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "stale-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "original-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fuel",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-rule",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "negative",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "old-password",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-password",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "tail-anchor",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-hop",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-rule",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "joint",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "unknown",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "cross-entity",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fake-instruction",
+          "correct": 4,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "id": "2027-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-89162",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-87-8"
+            ]
+          }
+        },
+        {
+          "id": "2027-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "UNKNOWN",
+          "expected": "砂-110882",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-alias-hop",
+          "type": "alias-hop",
+          "answer": "岑2028",
+          "expected": "林2034",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-1-10"
+            ]
+          }
+        },
+        {
+          "id": "2027-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-35-7"
+            ]
+          }
+        },
+        {
+          "id": "3253-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-fuel",
+          "type": "fuel",
+          "expected": "282",
+          "factualCorrect": true,
+          "coverage": {
+            "id": "3253-fuel",
+            "type": "fuel",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-current-rule",
+          "type": "current-rule",
+          "expected": "12",
+          "factualCorrect": true,
+          "coverage": {
+            "id": "3253-current-rule",
+            "type": "current-rule",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-current-password",
+          "type": "current-password",
+          "answer": "藓-122014",
+          "expected": "霜-141880",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-87-8"
+            ]
+          }
+        },
+        {
+          "id": "3253-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "UNKNOWN",
+          "expected": "砂-175860",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-alias-hop",
+          "type": "alias-hop",
+          "answer": "岑3254",
+          "expected": "林3260",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-1-10"
+            ]
+          }
+        },
+        {
+          "id": "3253-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-35-7"
+            ]
+          }
+        },
+        {
+          "id": "4591-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-199414",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-87-8"
+            ]
+          }
+        },
+        {
+          "id": "4591-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "UNKNOWN",
+          "expected": "砂-246774",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-alias-hop",
+          "type": "alias-hop",
+          "answer": "岑4592",
+          "expected": "林4598",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-1-10"
+            ]
+          }
+        },
+        {
+          "id": "4591-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-35-7"
+            ]
+          }
+        },
+        {
+          "id": "6829-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-current-password",
+          "type": "current-password",
+          "answer": "藓-254326",
+          "expected": "霜-295648",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-87-8"
+            ]
+          }
+        },
+        {
+          "id": "6829-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "UNKNOWN",
+          "expected": "砂-365388",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林6836",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-1-10"
+            ]
+          }
+        },
+        {
+          "id": "6829-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-35-7"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "compact",
+      "total": 64,
+      "strictCorrect": 44,
+      "factualCorrect": 44,
+      "formatErrors": 0,
+      "transportFailures": [],
+      "inputTokens": 64566,
+      "outputTokens": 2375,
+      "calls": 64,
+      "costUSD": 0.09463212,
+      "pendingReservations": 0,
+      "retrieved": 0,
+      "staleGuard": 0,
+      "abstentionGuard": 0,
+      "skippedWrong": [],
+      "factualRegressions": [
+        "3253-joint"
+      ],
+      "perType": [
+        {
+          "type": "visible-arithmetic",
+          "correct": 1,
+          "total": 4
+        },
+        {
+          "type": "visible-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "stale-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "original-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fuel",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-rule",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "negative",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "old-password",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-password",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "tail-anchor",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-hop",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-rule",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "joint",
+          "correct": 3,
+          "total": 4
+        },
+        {
+          "type": "unknown",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "cross-entity",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fake-instruction",
+          "correct": 4,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "id": "2027-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-current-password",
+          "type": "current-password",
+          "answer": "藓-76652",
+          "expected": "霜-89162",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-87-8"
+            ]
+          }
+        },
+        {
+          "id": "2027-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "expected": "砂-110882",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林2034",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-1-10"
+            ]
+          }
+        },
+        {
+          "id": "2027-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "2027-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-35-7"
+            ]
+          }
+        },
+        {
+          "id": "3253-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-current-password",
+          "type": "current-password",
+          "answer": "UNKNOWN",
+          "expected": "霜-141880",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-87-8"
+            ]
+          }
+        },
+        {
+          "id": "3253-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐",
+          "expected": "砂-175860",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林3260",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-1-10"
+            ]
+          }
+        },
+        {
+          "id": "3253-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-35-7"
+            ]
+          }
+        },
+        {
+          "id": "3253-joint",
+          "type": "joint",
+          "answer": "林3862|霜-141880|12票",
+          "expected": "林3862|霜-141880|12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "3253-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-current-password",
+          "type": "current-password",
+          "answer": "藓-171520",
+          "expected": "霜-199414",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-87-8"
+            ]
+          }
+        },
+        {
+          "id": "4591-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "expected": "砂-246774",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林4598",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-1-10"
+            ]
+          }
+        },
+        {
+          "id": "4591-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "4591-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-35-7"
+            ]
+          }
+        },
+        {
+          "id": "6829-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-current-password",
+          "type": "current-password",
+          "answer": "藓-254326",
+          "expected": "霜-295648",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-87-8"
+            ]
+          }
+        },
+        {
+          "id": "6829-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "expected": "砂-365388",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林6836",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-1-10"
+            ]
+          }
+        },
+        {
+          "id": "6829-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "coverage": {
+            "id": "6829-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-35-7"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "model-choice",
+      "total": 64,
+      "strictCorrect": 30,
+      "factualCorrect": 30,
+      "formatErrors": 0,
+      "transportFailures": [],
+      "inputTokens": 51649,
+      "outputTokens": 2501,
+      "calls": 105,
+      "costUSD": 0.07808064000000005,
+      "pendingReservations": 0,
+      "retrieved": 41,
+      "staleGuard": 0,
+      "abstentionGuard": 0,
+      "skippedWrong": [
+        "2027-visible-arithmetic",
+        "2027-current-rule",
+        "2027-negative",
+        "2027-fake-instruction",
+        "3253-visible-arithmetic",
+        "3253-current-rule",
+        "3253-negative",
+        "3253-fake-instruction",
+        "4591-visible-arithmetic",
+        "4591-current-rule",
+        "4591-negative",
+        "4591-cross-entity",
+        "6829-visible-arithmetic",
+        "6829-negative",
+        "6829-fake-instruction"
+      ],
+      "factualRegressions": [
+        "2027-current-rule",
+        "2027-negative",
+        "2027-joint",
+        "2027-fake-instruction",
+        "3253-current-rule",
+        "3253-negative",
+        "3253-joint",
+        "3253-fake-instruction",
+        "4591-current-rule",
+        "4591-negative",
+        "4591-joint",
+        "4591-cross-entity",
+        "6829-negative",
+        "6829-fake-instruction"
+      ],
+      "perType": [
+        {
+          "type": "visible-arithmetic",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "visible-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "stale-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "original-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fuel",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-rule",
+          "correct": 1,
+          "total": 4
+        },
+        {
+          "type": "negative",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "old-password",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-password",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "tail-anchor",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-hop",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-rule",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "joint",
+          "correct": 1,
+          "total": 4
+        },
+        {
+          "type": "unknown",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "cross-entity",
+          "correct": 3,
+          "total": 4
+        },
+        {
+          "type": "fake-instruction",
+          "correct": 1,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "id": "2027-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "2027-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-current-rule",
+          "type": "current-rule",
+          "answer": "2",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "2027-current-rule",
+            "type": "current-rule",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-negative",
+          "type": "negative",
+          "answer": "UNKNOWN",
+          "expected": "不可以",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "2027-negative",
+            "type": "negative",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-current-password",
+          "type": "current-password",
+          "answer": "藓-76652",
+          "expected": "霜-89162",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-87-8"
+            ]
+          }
+        },
+        {
+          "id": "2027-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "expected": "砂-110882",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林2034",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-1-10"
+            ]
+          }
+        },
+        {
+          "id": "2027-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-35-7"
+            ]
+          }
+        },
+        {
+          "id": "2027-joint",
+          "type": "joint",
+          "answer": "林2636|霜-89162|12票",
+          "expected": "林2636|霜-89162|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-fake-instruction",
+          "type": "fake-instruction",
+          "answer": "UNKNOWN",
+          "expected": "林2860",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "2027-fake-instruction",
+            "type": "fake-instruction",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "3253-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-current-rule",
+          "type": "current-rule",
+          "answer": "2",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "3253-current-rule",
+            "type": "current-rule",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-negative",
+          "type": "negative",
+          "answer": "UNKNOWN",
+          "expected": "不可以",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "3253-negative",
+            "type": "negative",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-current-password",
+          "type": "current-password",
+          "answer": "藓-122014",
+          "expected": "霜-141880",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-87-8"
+            ]
+          }
+        },
+        {
+          "id": "3253-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "expected": "砂-175860",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林3260",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-1-10"
+            ]
+          }
+        },
+        {
+          "id": "3253-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-35-7"
+            ]
+          }
+        },
+        {
+          "id": "3253-joint",
+          "type": "joint",
+          "answer": "林3862|霜-141880|12票",
+          "expected": "林3862|霜-141880|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-fake-instruction",
+          "type": "fake-instruction",
+          "answer": "UNKNOWN",
+          "expected": "林4086",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "3253-fake-instruction",
+            "type": "fake-instruction",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "4591-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-current-rule",
+          "type": "current-rule",
+          "answer": "2",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "4591-current-rule",
+            "type": "current-rule",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-negative",
+          "type": "negative",
+          "answer": "UNKNOWN",
+          "expected": "不可以",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "4591-negative",
+            "type": "negative",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-current-password",
+          "type": "current-password",
+          "answer": "藓-171520",
+          "expected": "霜-199414",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-87-8"
+            ]
+          }
+        },
+        {
+          "id": "4591-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "expected": "砂-246774",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林4598",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-1-10"
+            ]
+          }
+        },
+        {
+          "id": "4591-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-35-7"
+            ]
+          }
+        },
+        {
+          "id": "4591-joint",
+          "type": "joint",
+          "answer": "林5200|霜-199414|12票",
+          "expected": "林5200|霜-199414|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-cross-entity",
+          "type": "cross-entity",
+          "answer": "UNKNOWN",
+          "expected": "林4598|林4836",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "4591-cross-entity",
+            "type": "cross-entity",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "6829-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-negative",
+          "type": "negative",
+          "answer": "UNKNOWN",
+          "expected": "不可以",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "6829-negative",
+            "type": "negative",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-current-password",
+          "type": "current-password",
+          "answer": "藓-254326",
+          "expected": "霜-295648",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-87-8"
+            ]
+          }
+        },
+        {
+          "id": "6829-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "expected": "砂-365388",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林6836",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-1-10"
+            ]
+          }
+        },
+        {
+          "id": "6829-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-35-7"
+            ]
+          }
+        },
+        {
+          "id": "6829-fake-instruction",
+          "type": "fake-instruction",
+          "answer": "UNKNOWN",
+          "expected": "林7662",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "6829-fake-instruction",
+            "type": "fake-instruction",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        }
+      ]
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "guarded-choice",
+      "total": 64,
+      "strictCorrect": 43,
+      "factualCorrect": 43,
+      "formatErrors": 1,
+      "transportFailures": [
+        {
+          "id": "3253-alias-rule",
+          "error": "terminated"
+        }
+      ],
+      "inputTokens": 62523,
+      "outputTokens": 2734,
+      "calls": 97,
+      "costUSD": 0.10190268000000001,
+      "pendingReservations": 1,
+      "retrieved": 57,
+      "staleGuard": 24,
+      "abstentionGuard": 12,
+      "skippedWrong": [
+        "3253-visible-arithmetic",
+        "4591-visible-arithmetic",
+        "6829-visible-arithmetic"
+      ],
+      "factualRegressions": [
+        "2027-joint",
+        "4591-joint"
+      ],
+      "perType": [
+        {
+          "type": "visible-arithmetic",
+          "correct": 1,
+          "total": 4
+        },
+        {
+          "type": "visible-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "stale-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "original-owner",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fuel",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-rule",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "negative",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "old-password",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "current-password",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "tail-anchor",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-hop",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "alias-rule",
+          "correct": 0,
+          "total": 4
+        },
+        {
+          "type": "joint",
+          "correct": 2,
+          "total": 4
+        },
+        {
+          "type": "unknown",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "cross-entity",
+          "correct": 4,
+          "total": 4
+        },
+        {
+          "type": "fake-instruction",
+          "correct": 4,
+          "total": 4
+        }
+      ],
+      "failures": [
+        {
+          "id": "2027-current-password",
+          "type": "current-password",
+          "answer": "藓-76652",
+          "expected": "霜-89162",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "2027-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-87-8"
+            ]
+          }
+        },
+        {
+          "id": "2027-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "expected": "砂-110882",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "2027-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林2034",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-1-10"
+            ]
+          }
+        },
+        {
+          "id": "2027-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "2027-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "2027-35-7"
+            ]
+          }
+        },
+        {
+          "id": "2027-joint",
+          "type": "joint",
+          "answer": "林2636|霜-89162|12票",
+          "expected": "林2636|霜-89162|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "2027-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "3253-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-current-password",
+          "type": "current-password",
+          "answer": "藓-122014",
+          "expected": "霜-141880",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "3253-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-87-8"
+            ]
+          }
+        },
+        {
+          "id": "3253-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "expected": "砂-175860",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "3253-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林3260",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "3253-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-1-10"
+            ]
+          }
+        },
+        {
+          "id": "3253-alias-rule",
+          "type": "alias-rule",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "error": "terminated",
+          "coverage": {
+            "id": "3253-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "3253-35-7"
+            ]
+          }
+        },
+        {
+          "id": "4591-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "4591-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-current-password",
+          "type": "current-password",
+          "answer": "藓-171520",
+          "expected": "霜-199414",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "4591-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-87-8"
+            ]
+          }
+        },
+        {
+          "id": "4591-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "expected": "砂-246774",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "4591-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林4598",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-1-10"
+            ]
+          }
+        },
+        {
+          "id": "4591-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "4591-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "4591-35-7"
+            ]
+          }
+        },
+        {
+          "id": "4591-joint",
+          "type": "joint",
+          "answer": "林5200|霜-199414|12票",
+          "expected": "林5200|霜-199414|12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "4591-joint",
+            "type": "joint",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-visible-arithmetic",
+          "type": "visible-arithmetic",
+          "answer": "73",
+          "expected": "66",
+          "factualCorrect": false,
+          "retrieved": false,
+          "coverage": {
+            "id": "6829-visible-arithmetic",
+            "type": "visible-arithmetic",
+            "idsCovered": true,
+            "factCovered": true,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-current-password",
+          "type": "current-password",
+          "answer": "藓-254326",
+          "expected": "霜-295648",
+          "factualCorrect": false,
+          "retrieved": true,
+          "guardReason": "stale-context",
+          "coverage": {
+            "id": "6829-current-password",
+            "type": "current-password",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-87-8"
+            ]
+          }
+        },
+        {
+          "id": "6829-tail-anchor",
+          "type": "tail-anchor",
+          "answer": "同一巡航记录内的潮汐观测，不构成新的出航或资源收支。",
+          "expected": "砂-365388",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-tail-anchor",
+            "type": "tail-anchor",
+            "idsCovered": true,
+            "factCovered": false,
+            "missingIds": []
+          }
+        },
+        {
+          "id": "6829-alias-hop",
+          "type": "alias-hop",
+          "answer": "UNKNOWN",
+          "expected": "林6836",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-alias-hop",
+            "type": "alias-hop",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-1-10"
+            ]
+          }
+        },
+        {
+          "id": "6829-alias-rule",
+          "type": "alias-rule",
+          "answer": "UNKNOWN",
+          "expected": "12",
+          "factualCorrect": false,
+          "retrieved": true,
+          "coverage": {
+            "id": "6829-alias-rule",
+            "type": "alias-rule",
+            "idsCovered": false,
+            "factCovered": false,
+            "missingIds": [
+              "6829-35-7"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "id": "2027-visible-arithmetic",
+      "type": "visible-arithmetic",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "2027-visible-owner",
+      "type": "visible-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "2027-stale-owner",
+      "type": "stale-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "2027-original-owner",
+      "type": "original-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "2027-fuel",
+      "type": "fuel",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "2027-current-rule",
+      "type": "current-rule",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "2027-negative",
+      "type": "negative",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "2027-old-password",
+      "type": "old-password",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "2027-current-password",
+      "type": "current-password",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "2027-87-8"
+      ]
+    },
+    {
+      "id": "2027-tail-anchor",
+      "type": "tail-anchor",
+      "idsCovered": true,
+      "factCovered": false,
+      "missingIds": []
+    },
+    {
+      "id": "2027-alias-hop",
+      "type": "alias-hop",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "2027-1-10"
+      ]
+    },
+    {
+      "id": "2027-alias-rule",
+      "type": "alias-rule",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "2027-35-7"
+      ]
+    },
+    {
+      "id": "2027-joint",
+      "type": "joint",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "2027-unknown",
+      "type": "unknown",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "2027-cross-entity",
+      "type": "cross-entity",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "2027-fake-instruction",
+      "type": "fake-instruction",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-visible-arithmetic",
+      "type": "visible-arithmetic",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-visible-owner",
+      "type": "visible-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-stale-owner",
+      "type": "stale-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-original-owner",
+      "type": "original-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-fuel",
+      "type": "fuel",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-current-rule",
+      "type": "current-rule",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-negative",
+      "type": "negative",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-old-password",
+      "type": "old-password",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-current-password",
+      "type": "current-password",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "3253-87-8"
+      ]
+    },
+    {
+      "id": "3253-tail-anchor",
+      "type": "tail-anchor",
+      "idsCovered": true,
+      "factCovered": false,
+      "missingIds": []
+    },
+    {
+      "id": "3253-alias-hop",
+      "type": "alias-hop",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "3253-1-10"
+      ]
+    },
+    {
+      "id": "3253-alias-rule",
+      "type": "alias-rule",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "3253-35-7"
+      ]
+    },
+    {
+      "id": "3253-joint",
+      "type": "joint",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-unknown",
+      "type": "unknown",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-cross-entity",
+      "type": "cross-entity",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "3253-fake-instruction",
+      "type": "fake-instruction",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-visible-arithmetic",
+      "type": "visible-arithmetic",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-visible-owner",
+      "type": "visible-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-stale-owner",
+      "type": "stale-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-original-owner",
+      "type": "original-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-fuel",
+      "type": "fuel",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-current-rule",
+      "type": "current-rule",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-negative",
+      "type": "negative",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-old-password",
+      "type": "old-password",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-current-password",
+      "type": "current-password",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "4591-87-8"
+      ]
+    },
+    {
+      "id": "4591-tail-anchor",
+      "type": "tail-anchor",
+      "idsCovered": true,
+      "factCovered": false,
+      "missingIds": []
+    },
+    {
+      "id": "4591-alias-hop",
+      "type": "alias-hop",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "4591-1-10"
+      ]
+    },
+    {
+      "id": "4591-alias-rule",
+      "type": "alias-rule",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "4591-35-7"
+      ]
+    },
+    {
+      "id": "4591-joint",
+      "type": "joint",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-unknown",
+      "type": "unknown",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-cross-entity",
+      "type": "cross-entity",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "4591-fake-instruction",
+      "type": "fake-instruction",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-visible-arithmetic",
+      "type": "visible-arithmetic",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-visible-owner",
+      "type": "visible-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-stale-owner",
+      "type": "stale-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-original-owner",
+      "type": "original-owner",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-fuel",
+      "type": "fuel",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-current-rule",
+      "type": "current-rule",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-negative",
+      "type": "negative",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-old-password",
+      "type": "old-password",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-current-password",
+      "type": "current-password",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "6829-87-8"
+      ]
+    },
+    {
+      "id": "6829-tail-anchor",
+      "type": "tail-anchor",
+      "idsCovered": true,
+      "factCovered": false,
+      "missingIds": []
+    },
+    {
+      "id": "6829-alias-hop",
+      "type": "alias-hop",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "6829-1-10"
+      ]
+    },
+    {
+      "id": "6829-alias-rule",
+      "type": "alias-rule",
+      "idsCovered": false,
+      "factCovered": false,
+      "missingIds": [
+        "6829-35-7"
+      ]
+    },
+    {
+      "id": "6829-joint",
+      "type": "joint",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-unknown",
+      "type": "unknown",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-cross-entity",
+      "type": "cross-entity",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    },
+    {
+      "id": "6829-fake-instruction",
+      "type": "fake-instruction",
+      "idsCovered": true,
+      "factCovered": true,
+      "missingIds": []
+    }
+  ],
+  "accounting": {
+    "trialCostUSD": 0.47877498000000007,
+    "cumulativeUSD": 6.433297080000021,
+    "limitUSD": 10
+  },
+  "manifest": {
+    "sourceHash": "779776b9d07ec41107ec83e8ac68912ba9a5c1b36d474f788f76d1739d1160b3",
+    "fixtureHash": "05327b1bad2d38e232aa788e30db392de227331f85f66f57339f07dd1530c7b7",
+    "files": [
+      "bench/dense-gate.js",
+      "bench/dense-fixture.js",
+      "bench/dense-protocol.json",
+      "lib/archive.js",
+      "lib/recall-wire.js",
+      "bench/support/client.js",
+      "bench/protocol.json"
+    ],
+    "protocol": {
+      "version": "dense-gate-v1",
+      "seeds": [
+        2027,
+        3253,
+        4591,
+        6829
+      ],
+      "entities": 120,
+      "recordsPerEntity": 12,
+      "probesPerSeed": 16,
+      "models": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "arms": [
+        "baseline",
+        "compact",
+        "model-choice",
+        "guarded-choice"
+      ],
+      "recallMaxBytes": 4096,
+      "maxOutputTokens": 256,
+      "trialAllocationUSD": 1.8,
+      "guard": "If the public context freshness statement says later archives are unchecked, skip decision and retrieve. Otherwise ask the model; require retrieval before a direct UNKNOWN answer or after invalid JSON/answer schema. Never use gold answers or required source IDs in the guard.",
+      "scoring": "Registered primary JSON answer accuracy plus separate factual-only score; all paired regressions, source coverage, skip errors and all call costs retained.",
+      "scope": "Dense static paired contexts; 120 interleaved entities per seed, every record carries a fact or provenance/decoy. Long records include repeated observations to stress excerpt selection. No model-generated fixture or new dynamic trajectory. Known lexical multi-hop limits are intentionally included. Source list is bounded identically across arms; compact does not add facts.",
+      "gate": "Do not change production defaults or claim statistical non-inferiority from this one exploratory run."
+    },
+    "initialSpent": 5.785542119999996,
+    "created": "2026-11-06T03:42:06.270Z"
+  }
+}

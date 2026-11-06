@@ -1,0 +1,80 @@
+{
+  "rows": [
+    {
+      "count": 100,
+      "mib": 0.5406227111816406,
+      "sources": 7,
+      "sourceTotal": 7,
+      "correct": 16,
+      "total": 16,
+      "minMs": 21.638800000000003,
+      "maxMs": 54.65299999999999,
+      "reloadMs": 4.709199999999996,
+      "identical": true,
+      "costUSD": 0.008547300000000924
+    },
+    {
+      "count": 1000,
+      "mib": 5.881113052368164,
+      "sources": 7,
+      "sourceTotal": 7,
+      "correct": 16,
+      "total": 16,
+      "minMs": 247.95659999999998,
+      "maxMs": 289.43730000000005,
+      "reloadMs": 20.1053,
+      "identical": true,
+      "costUSD": 0.008714159999998472
+    },
+    {
+      "count": 5000,
+      "mib": 29.627602577209473,
+      "sources": 7,
+      "sourceTotal": 7,
+      "correct": 16,
+      "total": 16,
+      "minMs": 1266.3354,
+      "maxMs": 1996.901899999999,
+      "reloadMs": 104.64480000000003,
+      "identical": true,
+      "costUSD": 0.008782200000000628
+    },
+    {
+      "language": "zh",
+      "count": 5000,
+      "mib": 29.62392234802246,
+      "sources": 7,
+      "sourceTotal": 7,
+      "correct": 16,
+      "total": 16,
+      "minMs": 3468.072399999999,
+      "maxMs": 4104.8992,
+      "costUSD": 0.004167720000000763
+    }
+  ],
+  "costUSD": 0.038374380000001374,
+  "cumulativeUSD": 4.223928240000007,
+  "guard": {
+    "kind": "NO_API_CAPACITY_GUARD_REGRESSION",
+    "sourcesUnchanged": [
+      {
+        "count": 100,
+        "allMatch": true
+      },
+      {
+        "count": 1000,
+        "allMatch": true
+      },
+      {
+        "count": 5000,
+        "allMatch": true
+      }
+    ],
+    "boundary": {
+      "fullAfterReload": true,
+      "rejected": true,
+      "code": "ARCHIVE_CAPACITY",
+      "fileBytes": 33554432
+    }
+  }
+}

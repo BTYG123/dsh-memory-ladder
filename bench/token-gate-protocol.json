@@ -1,0 +1,13 @@
+{
+  "version": "token-gate-v1",
+  "arms": ["baseline", "compact", "model-choice", "no-recall"],
+  "historicalTurns": [30,31,32,33,34,35,36,37,38,39,70,71,72,73,74,75,76,77,78,79,110,111,112,113,114,115,116,117,118,119],
+  "newSeeds": [811, 947, 1061, 1237],
+  "newTypes": ["visible", "hidden-secret", "stale-state", "original-state", "negative-rule", "unknown"],
+  "models": ["deepseek-flash", "deepseek-v4-pro"],
+  "maxOutputTokens": 256,
+  "trialAllocationUSD": 2.5,
+  "scope": "Paired static request experiments, not a new native long trajectory. Historical contexts and summaries remain fixed across arms. No extra summary calls are made; prior summary cost is common and cancels in comparisons.",
+  "choice": "One call either answers directly or requests recall. If recall is requested, a second answer call receives the same evidence as compact. No gold answer or required-retrieval label is provided to the model. Invalid decisions fall back to retrieval and are recorded.",
+  "gate": "Report per-model accuracy, every paired regression, input/output tokens, calls, latency and all decision-call costs. Do not enable a new production default from this exploratory trial alone."
+}

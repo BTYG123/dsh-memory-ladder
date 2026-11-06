@@ -1,0 +1,25 @@
+{
+  "version": "focused-gate-v1",
+  "seeds": [
+    9109,
+    10453
+  ],
+  "entities": 120,
+  "recordsPerEntity": 12,
+  "probesPerSeed": 16,
+  "models": [
+    "deepseek-flash",
+    "deepseek-v4-pro"
+  ],
+  "arms": [
+    "baseline",
+    "compact",
+    "focused"
+  ],
+  "recallMaxBytes": 4096,
+  "maxOutputTokens": 256,
+  "trialAllocationUSD": 1,
+  "scoring": "Registered primary JSON answer accuracy plus separate factual-only score; all paired regressions, source coverage, skip errors and all call costs retained.",
+  "scope": "New seeds from the same dense template, selected after dense-v1 offline weaknesses were observed. Experimental identifier-scoped ranking and weighted long-record windows, fixed recall byte cap; no production changes, no independent-template generalization claim.",
+  "gate": "Do not change production defaults or claim statistical non-inferiority from this one exploratory run."
+}

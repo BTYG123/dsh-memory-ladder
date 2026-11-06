@@ -1,0 +1,240 @@
+{
+  "summary": [
+    {
+      "model": "deepseek-flash",
+      "correct": 120,
+      "total": 120,
+      "baselineCorrect": 120,
+      "regressions": [],
+      "failures": [],
+      "current": {
+        "calls": 133,
+        "input": 254260,
+        "output": 6846,
+        "costUSD": 0.0844932
+      },
+      "baseline": {
+        "calls": 133,
+        "input": 336025,
+        "output": 8002,
+        "costUSD": 0.11040989999999998
+      },
+      "inputReduction": 0.2433301093668626,
+      "totalTokenReduction": 0.2410305005130411,
+      "costReduction": 0.23473166808411183,
+      "currentSummary": {
+        "calls": 13,
+        "input": 31075,
+        "output": 4023,
+        "costUSD": 0.0141501
+      },
+      "baselineSummary": {
+        "calls": 13,
+        "input": 32063,
+        "output": 5190,
+        "costUSD": 0.015846899999999997
+      },
+      "compactions": [
+        {
+          "turn": 9,
+          "committed": true
+        },
+        {
+          "turn": 19,
+          "committed": true
+        },
+        {
+          "turn": 29,
+          "committed": true
+        },
+        {
+          "turn": 39,
+          "committed": true
+        },
+        {
+          "turn": 49,
+          "committed": true
+        },
+        {
+          "turn": 59,
+          "committed": true
+        },
+        {
+          "turn": 69,
+          "committed": true
+        },
+        {
+          "turn": 79,
+          "committed": true
+        },
+        {
+          "turn": 89,
+          "committed": true
+        },
+        {
+          "turn": 99,
+          "committed": true
+        },
+        {
+          "turn": 109,
+          "committed": true
+        },
+        {
+          "turn": 119,
+          "committed": true
+        }
+      ],
+      "restarts": [
+        {
+          "phase": 1,
+          "pid": 13432,
+          "resumed": false
+        },
+        {
+          "phase": 2,
+          "pid": 25268,
+          "resumed": true
+        },
+        {
+          "phase": 3,
+          "pid": 7480,
+          "resumed": true
+        }
+      ],
+      "archiveBytes": 31209307,
+      "windowExceeded": 0
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "correct": 120,
+      "total": 120,
+      "baselineCorrect": 120,
+      "regressions": [],
+      "failures": [],
+      "current": {
+        "calls": 133,
+        "input": 264581,
+        "output": 8177,
+        "costUSD": 0.38162784000000005
+      },
+      "baseline": {
+        "calls": 133,
+        "input": 344318,
+        "output": 8712,
+        "costUSD": 0.48899928000000026
+      },
+      "inputReduction": 0.2315795282268136,
+      "totalTokenReduction": 0.22738010933914965,
+      "costReduction": 0.21957382023139205,
+      "currentSummary": {
+        "calls": 13,
+        "input": 32326,
+        "output": 4728,
+        "costUSD": 0.061393199999999995
+      },
+      "baselineSummary": {
+        "calls": 13,
+        "input": 32917,
+        "output": 5125,
+        "costUSD": 0.06374544
+      },
+      "compactions": [
+        {
+          "turn": 9,
+          "committed": true
+        },
+        {
+          "turn": 19,
+          "committed": true
+        },
+        {
+          "turn": 29,
+          "committed": true
+        },
+        {
+          "turn": 39,
+          "committed": true
+        },
+        {
+          "turn": 49,
+          "committed": true
+        },
+        {
+          "turn": 59,
+          "committed": true
+        },
+        {
+          "turn": 69,
+          "committed": true
+        },
+        {
+          "turn": 79,
+          "committed": true
+        },
+        {
+          "turn": 89,
+          "committed": true
+        },
+        {
+          "turn": 99,
+          "committed": true
+        },
+        {
+          "turn": 109,
+          "committed": true
+        },
+        {
+          "turn": 119,
+          "committed": true
+        }
+      ],
+      "restarts": [
+        {
+          "phase": 1,
+          "pid": 13432,
+          "resumed": false
+        },
+        {
+          "phase": 2,
+          "pid": 25268,
+          "resumed": true
+        },
+        {
+          "phase": 3,
+          "pid": 7480,
+          "resumed": true
+        }
+      ],
+      "archiveBytes": 31210340,
+      "windowExceeded": 0
+    }
+  ],
+  "accounting": {
+    "trialCostUSD": 0.46612104000000004,
+    "cumulativeUSD": 5.785542119999996,
+    "limitUSD": 10
+  },
+  "manifest": {
+    "sourceHash": "c968c5fd5aca8cc2014b8e21ecaeff80782287278ec8977dca70de9c63703cb1",
+    "protocol": {
+      "version": "long-compact-v1",
+      "phases": 3,
+      "turnsPerPhase": 40,
+      "models": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "summaryEveryTurns": 10,
+      "seedArchive": "capacity-v1/scale-5000 (29.63 MiB)",
+      "recallMaxBytes": 4096,
+      "maxSummaryTokens": 1024,
+      "contextWindow": 32768,
+      "scope": "Real Harness Session, manual compaction transactions and prompt-context services; metered transport bridge; not the complete AgentLoop",
+      "truth": "Deterministic host-accepted world events; gold answers are never sent as scoring data. Model replies do not mutate canonical world state.",
+      "scoring": "Exact normalized factual answers; preserve all failures, compaction failures and context-window breaches. No narrative-quality claim.",
+      "budget": "Existing shared cumulative USD 10 ledger, no reset",
+      "change": "Same native long-task protocol with compact wire format only; compare full trajectory against long-native-v2, all new summary calls charged."
+    },
+    "created": "2026-11-06T03:25:49.520Z"
+  }
+}

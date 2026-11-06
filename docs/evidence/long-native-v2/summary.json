@@ -1,0 +1,134 @@
+{
+  "manifest": {
+    "sourceHash": "e0dc7cf5cec57b06d94501a164880694e154130e21e7fa5506e4f4a0b50622db",
+    "protocol": {
+      "version": "long-native-v2",
+      "phases": 3,
+      "turnsPerPhase": 40,
+      "models": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "summaryEveryTurns": 10,
+      "seedArchive": "capacity-v1/scale-5000 (29.63 MiB)",
+      "recallMaxBytes": 4096,
+      "maxSummaryTokens": 1024,
+      "contextWindow": 32768,
+      "scope": "Real Harness Session, manual compaction transactions and prompt-context services; metered transport bridge; not the complete AgentLoop",
+      "truth": "Deterministic host-accepted world events; gold answers are never sent as scoring data. Model replies do not mutate canonical world state.",
+      "scoring": "Exact normalized factual answers; preserve all failures, compaction failures and context-window breaches. No narrative-quality claim.",
+      "budget": "Existing shared cumulative USD 10 ledger, no reset"
+    },
+    "created": "2026-11-06T02:42:45.857Z"
+  },
+  "models": [
+    {
+      "model": "deepseek-flash",
+      "correct": 120,
+      "total": 120,
+      "compactions": 12,
+      "compactionAttempts": 12,
+      "compactionErrors": [],
+      "restarts": [
+        {
+          "phase": 1,
+          "pid": 20632,
+          "resumed": false
+        },
+        {
+          "phase": 2,
+          "pid": 19756,
+          "resumed": true
+        },
+        {
+          "phase": 3,
+          "pid": 23404,
+          "resumed": true
+        }
+      ],
+      "archiveBytes": 31209034,
+      "windowExceeded": 0,
+      "maxPromptTokens": 3374,
+      "warmRecallP50Ms": 4.846799999999348,
+      "warmRecallP95Ms": 16.76560000000063,
+      "coldRecallMs": [
+        696.0524,
+        993.0717000000001,
+        884.4672999999999
+      ],
+      "calls": 133,
+      "costUSD": 0.11040989999999998,
+      "failures": []
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "correct": 120,
+      "total": 120,
+      "compactions": 12,
+      "compactionAttempts": 12,
+      "compactionErrors": [],
+      "restarts": [
+        {
+          "phase": 1,
+          "pid": 20632,
+          "resumed": false
+        },
+        {
+          "phase": 2,
+          "pid": 19756,
+          "resumed": true
+        },
+        {
+          "phase": 3,
+          "pid": 23404,
+          "resumed": true
+        }
+      ],
+      "archiveBytes": 31210927,
+      "windowExceeded": 0,
+      "maxPromptTokens": 3550,
+      "warmRecallP50Ms": 5.364299999999275,
+      "warmRecallP95Ms": 17.610100000005332,
+      "coldRecallMs": [
+        686.3438999999998,
+        1921.2918,
+        1806.8537000000001
+      ],
+      "calls": 133,
+      "costUSD": 0.48899928000000026,
+      "failures": []
+    }
+  ],
+  "index": [
+    {
+      "language": "en",
+      "entries": 5000,
+      "archiveBytes": 31066793,
+      "buildIndexMs": 736.5715,
+      "heapDeltaMiB": 29.347618103027344,
+      "rssDeltaMiB": 129.16015625,
+      "identical": 14,
+      "probes": 14,
+      "hotP50Ms": 0.8860999999997148,
+      "hotP95Ms": 42.3768,
+      "referenceP50Ms": 1296.7649
+    },
+    {
+      "language": "zh",
+      "entries": 5000,
+      "archiveBytes": 31062934,
+      "buildIndexMs": 1666.6221999999998,
+      "heapDeltaMiB": 24.54212188720703,
+      "rssDeltaMiB": 26.21484375,
+      "identical": 8,
+      "probes": 8,
+      "hotP50Ms": 0.7080999999998312,
+      "hotP95Ms": 2.157999999999447,
+      "referenceP50Ms": 3115.906000000001
+    }
+  ],
+  "pilotCostUSD": 0.06873144,
+  "trialCostUSD": 0.5994091800000002,
+  "cumulativeUSD": 4.892068860000011,
+  "limitUSD": 10
+}

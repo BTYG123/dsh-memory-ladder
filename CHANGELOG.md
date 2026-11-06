@@ -4,6 +4,42 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] — 2026-11-06
+
+Opt-in retrieval formats and a capacity guard.
+
+### Added
+
+- `RecallIndex`: incremental lexical index inside `ArchiveStore`. At a 29.6 MiB
+  archive the retrieval step drops from a full scan to an indexed lookup while
+  all 30 benchmark queries stay byte-identical to the baseline.
+- `./compact` export (`lib/compact-engine.js` + `lib/recall-wire.js`): a
+  drop-in engine subclass that transports the same retrieved events with
+  session-local event orders instead of UUIDs. Measured −23.7% input tokens on
+  the static protocol and −24.1% / −22.7% total tokens on the dynamic long run,
+  with no new wrong answers. **Not the default**; mount it only if you want the
+  smaller transport.
+- `docs/CAPACITY.md`, `docs/TOKEN_GATE.md`, `docs/DENSE_RECALL.md`,
+  `docs/DYNAMIC_RECALL.md`, `docs/LONG_TASKS.md` and six evidence packages with
+  checksums and offline verification.
+
+### Fixed
+
+- **Silent archive overflow.** At exactly `archiveMaxBytes` the old code kept
+  returning success from `remember()` without storing the new message, and a
+  reload reset `full` to false — so recall could serve stale state (an outdated
+  owner, a superseded number) while looking healthy. It now throws
+  `ARCHIVE_CAPACITY`; the compaction transaction then refuses to replace the raw
+  messages and no summarization call is spent. Retry after raising
+  `archiveMaxBytes`, rotating the archive, or disabling `archiveRecall`.
+  See the limit note in the README: a full archive means that session can no
+  longer compact until you act.
+
+### Note
+
+`lib/focused-recall.js` is experimental, not exported, and there only for the
+benchmark harness; it ships in the tarball so a future export cannot break the
+package.
 ## [0.2.1] — 2026-11-06
 
 Re-measured on the released code. No runtime behaviour changed.
@@ -47,6 +83,42 @@ the previous run.
 
 - Holdout evidence covers explicit compaction of synthetic records, not the complete automatic AgentLoop, real repository work or narrative quality. Accuracy gains and cost increases are both retained in the evidence.
 
+## [0.3.0] — 2026-11-06
+
+Opt-in retrieval formats and a capacity guard.
+
+### Added
+
+- `RecallIndex`: incremental lexical index inside `ArchiveStore`. At a 29.6 MiB
+  archive the retrieval step drops from a full scan to an indexed lookup while
+  all 30 benchmark queries stay byte-identical to the baseline.
+- `./compact` export (`lib/compact-engine.js` + `lib/recall-wire.js`): a
+  drop-in engine subclass that transports the same retrieved events with
+  session-local event orders instead of UUIDs. Measured −23.7% input tokens on
+  the static protocol and −24.1% / −22.7% total tokens on the dynamic long run,
+  with no new wrong answers. **Not the default**; mount it only if you want the
+  smaller transport.
+- `docs/CAPACITY.md`, `docs/TOKEN_GATE.md`, `docs/DENSE_RECALL.md`,
+  `docs/DYNAMIC_RECALL.md`, `docs/LONG_TASKS.md` and six evidence packages with
+  checksums and offline verification.
+
+### Fixed
+
+- **Silent archive overflow.** At exactly `archiveMaxBytes` the old code kept
+  returning success from `remember()` without storing the new message, and a
+  reload reset `full` to false — so recall could serve stale state (an outdated
+  owner, a superseded number) while looking healthy. It now throws
+  `ARCHIVE_CAPACITY`; the compaction transaction then refuses to replace the raw
+  messages and no summarization call is spent. Retry after raising
+  `archiveMaxBytes`, rotating the archive, or disabling `archiveRecall`.
+  See the limit note in the README: a full archive means that session can no
+  longer compact until you act.
+
+### Note
+
+`lib/focused-recall.js` is experimental, not exported, and there only for the
+benchmark harness; it ships in the tarball so a future export cannot break the
+package.
 ## [0.2.1] — 2026-11-06
 
 Re-measured on the released code. No runtime behaviour changed.
