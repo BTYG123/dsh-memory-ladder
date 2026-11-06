@@ -6,6 +6,8 @@ The JSONL archive and serialized recall schema are unchanged. Cold startup still
 
 See [measured results, failures and evidence](evidence/long-native-v2/RESULTS.md). The report distinguishes offline output equivalence, local timing and actual model scores. It also retains an invalid driver pilot rather than counting it as model evidence.
 
+The follow-up [token reduction and model-directed recall](TOKEN_GATE.md) compares prompt formats and retrieval decisions, including an opt-in compact-format engine and a new dynamic trajectory.
+
 To reproduce from fresh run directories, first create the English capacity fixture as described in [CAPACITY.md](CAPACITY.md). For the bilingual timing comparison also run the Chinese capacity fixture. Then:
 
 ```sh

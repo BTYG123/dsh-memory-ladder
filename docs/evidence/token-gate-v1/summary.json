@@ -1,0 +1,577 @@
+{
+  "summary": [
+    {
+      "model": "deepseek-flash",
+      "arm": "baseline",
+      "correct": 54,
+      "total": 54,
+      "factualCorrect": 54,
+      "formatErrors": 0,
+      "factualRegressions": [],
+      "historical": {
+        "correct": 30,
+        "total": 30
+      },
+      "novel": {
+        "correct": 24,
+        "total": 24
+      },
+      "inputTokens": 88049,
+      "outputTokens": 1265,
+      "cacheHitTokens": 76157,
+      "calls": 54,
+      "costUSD": 0.027932699999999987,
+      "accountedUSDFromUsage": 0.027932699999999987,
+      "reservedCalls": 0,
+      "totalModelMs": 50385.26070000003,
+      "retrieved": 0,
+      "invalidDecisions": 0,
+      "labelledNeedSkipped": 0,
+      "labelledNeedSkippedWrong": 0,
+      "regressions": [],
+      "failures": []
+    },
+    {
+      "model": "deepseek-flash",
+      "arm": "compact",
+      "correct": 54,
+      "total": 54,
+      "factualCorrect": 54,
+      "formatErrors": 0,
+      "factualRegressions": [],
+      "historical": {
+        "correct": 30,
+        "total": 30
+      },
+      "novel": {
+        "correct": 24,
+        "total": 24
+      },
+      "inputTokens": 67182,
+      "outputTokens": 1246,
+      "cacheHitTokens": 9088,
+      "calls": 54,
+      "costUSD": 0.021649800000000007,
+      "accountedUSDFromUsage": 0.021649800000000007,
+      "reservedCalls": 0,
+      "totalModelMs": 50725.476199999976,
+      "retrieved": 0,
+      "invalidDecisions": 0,
+      "labelledNeedSkipped": 0,
+      "labelledNeedSkippedWrong": 0,
+      "regressions": [],
+      "failures": []
+    },
+    {
+      "model": "deepseek-flash",
+      "arm": "model-choice",
+      "correct": 52,
+      "total": 54,
+      "factualCorrect": 52,
+      "formatErrors": 0,
+      "factualRegressions": [
+        "new-811-stale-state",
+        "new-1237-stale-state"
+      ],
+      "historical": {
+        "correct": 30,
+        "total": 30
+      },
+      "novel": {
+        "correct": 22,
+        "total": 24
+      },
+      "inputTokens": 49330,
+      "outputTokens": 1368,
+      "cacheHitTokens": 35072,
+      "calls": 72,
+      "costUSD": 0.0164406,
+      "accountedUSDFromUsage": 0.0164406,
+      "reservedCalls": 0,
+      "totalModelMs": 67361.18969999999,
+      "retrieved": 18,
+      "invalidDecisions": 0,
+      "labelledNeedSkipped": 2,
+      "labelledNeedSkippedWrong": 2,
+      "regressions": [
+        "new-811-stale-state",
+        "new-1237-stale-state"
+      ],
+      "failures": [
+        {
+          "id": "new-811-stale-state",
+          "expected": "洛811",
+          "answer": "UNKNOWN",
+          "retrieved": false
+        },
+        {
+          "id": "new-1237-stale-state",
+          "expected": "洛1237",
+          "answer": "UNKNOWN",
+          "retrieved": false
+        }
+      ]
+    },
+    {
+      "model": "deepseek-flash",
+      "arm": "no-recall",
+      "correct": 41,
+      "total": 54,
+      "factualCorrect": 41,
+      "formatErrors": 0,
+      "factualRegressions": [
+        "new-811-hidden-secret",
+        "new-811-stale-state",
+        "new-811-original-state",
+        "new-947-hidden-secret",
+        "new-947-stale-state",
+        "new-947-original-state",
+        "new-947-negative-rule",
+        "new-1061-hidden-secret",
+        "new-1061-stale-state",
+        "new-1061-original-state",
+        "new-1237-hidden-secret",
+        "new-1237-stale-state",
+        "new-1237-original-state"
+      ],
+      "historical": {
+        "correct": 30,
+        "total": 30
+      },
+      "novel": {
+        "correct": 11,
+        "total": 24
+      },
+      "inputTokens": 41200,
+      "outputTokens": 1314,
+      "cacheHitTokens": 31488,
+      "calls": 54,
+      "costUSD": 0.013936800000000001,
+      "accountedUSDFromUsage": 0.013936800000000001,
+      "reservedCalls": 0,
+      "totalModelMs": 52219.66330000005,
+      "retrieved": 0,
+      "invalidDecisions": 0,
+      "labelledNeedSkipped": 0,
+      "labelledNeedSkippedWrong": 0,
+      "regressions": [
+        "new-811-hidden-secret",
+        "new-811-stale-state",
+        "new-811-original-state",
+        "new-947-hidden-secret",
+        "new-947-stale-state",
+        "new-947-original-state",
+        "new-947-negative-rule",
+        "new-1061-hidden-secret",
+        "new-1061-stale-state",
+        "new-1061-original-state",
+        "new-1237-hidden-secret",
+        "new-1237-stale-state",
+        "new-1237-original-state"
+      ],
+      "failures": [
+        {
+          "id": "new-811-hidden-secret",
+          "expected": "苔-30026",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-811-stale-state",
+          "expected": "洛811",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-811-original-state",
+          "expected": "岑811",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-947-hidden-secret",
+          "expected": "苔-35058",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-947-stale-state",
+          "expected": "洛947",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-947-original-state",
+          "expected": "岑947",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-947-negative-rule",
+          "expected": "不可以",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1061-hidden-secret",
+          "expected": "苔-39276",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1061-stale-state",
+          "expected": "洛1061",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1061-original-state",
+          "expected": "岑1061",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1237-hidden-secret",
+          "expected": "苔-45788",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1237-stale-state",
+          "expected": "洛1237",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1237-original-state",
+          "expected": "岑1237",
+          "answer": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "baseline",
+      "correct": 47,
+      "total": 54,
+      "factualCorrect": 51,
+      "formatErrors": 4,
+      "factualRegressions": [],
+      "historical": {
+        "correct": 30,
+        "total": 30
+      },
+      "novel": {
+        "correct": 17,
+        "total": 24
+      },
+      "inputTokens": 87953,
+      "outputTokens": 1462,
+      "cacheHitTokens": 82304,
+      "calls": 54,
+      "costUSD": 0.12188748,
+      "accountedUSDFromUsage": 0.12188748,
+      "reservedCalls": 0,
+      "totalModelMs": 74831.21749999998,
+      "retrieved": 0,
+      "invalidDecisions": 0,
+      "labelledNeedSkipped": 0,
+      "labelledNeedSkippedWrong": 0,
+      "regressions": [],
+      "failures": [
+        {
+          "id": "new-811-visible",
+          "expected": "68"
+        },
+        {
+          "id": "new-811-hidden-secret",
+          "expected": "苔-30026",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-947-visible",
+          "expected": "68"
+        },
+        {
+          "id": "new-947-hidden-secret",
+          "expected": "苔-35058",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1061-visible",
+          "expected": "68"
+        },
+        {
+          "id": "new-1061-hidden-secret",
+          "expected": "苔-39276",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1237-visible",
+          "expected": "68"
+        }
+      ]
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "compact",
+      "correct": 52,
+      "total": 54,
+      "factualCorrect": 53,
+      "formatErrors": 1,
+      "factualRegressions": [],
+      "historical": {
+        "correct": 30,
+        "total": 30
+      },
+      "novel": {
+        "correct": 22,
+        "total": 24
+      },
+      "inputTokens": 67132,
+      "outputTokens": 1597,
+      "cacheHitTokens": 8960,
+      "calls": 54,
+      "costUSD": 0.09493835999999996,
+      "accountedUSDFromUsage": 0.09493835999999996,
+      "reservedCalls": 0,
+      "totalModelMs": 92952.10489999998,
+      "retrieved": 0,
+      "invalidDecisions": 0,
+      "labelledNeedSkipped": 0,
+      "labelledNeedSkippedWrong": 0,
+      "regressions": [],
+      "failures": [
+        {
+          "id": "new-947-hidden-secret",
+          "expected": "苔-35058",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1061-visible",
+          "expected": "68"
+        }
+      ]
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "model-choice",
+      "correct": 53,
+      "total": 54,
+      "factualCorrect": 53,
+      "formatErrors": 0,
+      "factualRegressions": [],
+      "historical": {
+        "correct": 30,
+        "total": 30
+      },
+      "novel": {
+        "correct": 23,
+        "total": 24
+      },
+      "inputTokens": 48390,
+      "outputTokens": 1733,
+      "cacheHitTokens": 36992,
+      "calls": 70,
+      "costUSD": 0.07073748000000002,
+      "accountedUSDFromUsage": 0.07073748000000002,
+      "reservedCalls": 0,
+      "totalModelMs": 96837.77550000009,
+      "retrieved": 16,
+      "invalidDecisions": 0,
+      "labelledNeedSkipped": 4,
+      "labelledNeedSkippedWrong": 0,
+      "regressions": [],
+      "failures": [
+        {
+          "id": "new-811-hidden-secret",
+          "expected": "苔-30026",
+          "answer": "UNKNOWN",
+          "retrieved": true
+        }
+      ]
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "arm": "no-recall",
+      "correct": 42,
+      "total": 54,
+      "factualCorrect": 42,
+      "formatErrors": 0,
+      "factualRegressions": [
+        "new-811-stale-state",
+        "new-811-original-state",
+        "new-947-stale-state",
+        "new-947-original-state",
+        "new-1061-stale-state",
+        "new-1061-original-state",
+        "new-1237-hidden-secret",
+        "new-1237-stale-state",
+        "new-1237-original-state"
+      ],
+      "historical": {
+        "correct": 30,
+        "total": 30
+      },
+      "novel": {
+        "correct": 12,
+        "total": 24
+      },
+      "inputTokens": 40822,
+      "outputTokens": 1501,
+      "cacheHitTokens": 31616,
+      "calls": 54,
+      "costUSD": 0.05982899999999999,
+      "accountedUSDFromUsage": 0.05982899999999999,
+      "reservedCalls": 0,
+      "totalModelMs": 76069.61120000004,
+      "retrieved": 0,
+      "invalidDecisions": 0,
+      "labelledNeedSkipped": 0,
+      "labelledNeedSkippedWrong": 0,
+      "regressions": [
+        "new-811-stale-state",
+        "new-811-original-state",
+        "new-947-stale-state",
+        "new-947-original-state",
+        "new-1061-stale-state",
+        "new-1061-original-state",
+        "new-1237-hidden-secret",
+        "new-1237-stale-state",
+        "new-1237-original-state"
+      ],
+      "failures": [
+        {
+          "id": "new-811-hidden-secret",
+          "expected": "苔-30026",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-811-stale-state",
+          "expected": "洛811",
+          "answer": "岑811"
+        },
+        {
+          "id": "new-811-original-state",
+          "expected": "岑811",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-947-hidden-secret",
+          "expected": "苔-35058",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-947-stale-state",
+          "expected": "洛947",
+          "answer": "岑947"
+        },
+        {
+          "id": "new-947-original-state",
+          "expected": "岑947",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1061-hidden-secret",
+          "expected": "苔-39276",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1061-stale-state",
+          "expected": "洛1061",
+          "answer": "岑1061"
+        },
+        {
+          "id": "new-1061-original-state",
+          "expected": "岑1061",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1237-hidden-secret",
+          "expected": "苔-45788",
+          "answer": "UNKNOWN"
+        },
+        {
+          "id": "new-1237-stale-state",
+          "expected": "洛1237",
+          "answer": "岑1237"
+        },
+        {
+          "id": "new-1237-original-state",
+          "expected": "岑1237",
+          "answer": "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "accounting": {
+    "trialCostUSD": 0.42735221999999995,
+    "cumulativeUSD": 5.785542119999996,
+    "limitUSD": 10
+  },
+  "manifest": {
+    "sourceHash": "43c3ea2789b8e54f617096bc2a05ad2b9292c18da78f70cfff5747d9b1c957b4",
+    "files": [
+      "bench/token-gate.js",
+      "bench/token-gate-protocol.json",
+      "lib/recall-wire.js",
+      "lib/archive.js",
+      "bench/support/client.js",
+      "bench/protocol.json"
+    ],
+    "protocol": {
+      "version": "token-gate-v1",
+      "arms": [
+        "baseline",
+        "compact",
+        "model-choice",
+        "no-recall"
+      ],
+      "historicalTurns": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119
+      ],
+      "newSeeds": [
+        811,
+        947,
+        1061,
+        1237
+      ],
+      "newTypes": [
+        "visible",
+        "hidden-secret",
+        "stale-state",
+        "original-state",
+        "negative-rule",
+        "unknown"
+      ],
+      "models": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "maxOutputTokens": 256,
+      "trialAllocationUSD": 2.5,
+      "scope": "Paired static request experiments, not a new native long trajectory. Historical contexts and summaries remain fixed across arms. No extra summary calls are made; prior summary cost is common and cancels in comparisons.",
+      "choice": "One call either answers directly or requests recall. If recall is requested, a second answer call receives the same evidence as compact. No gold answer or required-retrieval label is provided to the model. Invalid decisions fall back to retrieval and are recorded.",
+      "gate": "Report per-model accuracy, every paired regression, input/output tokens, calls, latency and all decision-call costs. Do not enable a new production default from this exploratory trial alone."
+    },
+    "initialSpent": 4.892068860000011,
+    "created": "2026-11-06T03:18:27.539Z"
+  }
+}

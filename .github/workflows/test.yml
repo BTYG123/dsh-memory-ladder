@@ -22,5 +22,7 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm test
       - run: node bench/verify-long.js
+      - run: node bench/verify-token-gate.js
+      - run: node bench/verify-compact-long.js
       - run: node --check index.js
       - run: npm pack --dry-run

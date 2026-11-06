@@ -21,6 +21,7 @@
   ],
   "exports": {
     ".": "./index.js",
+    "./compact": "./lib/compact-engine.js",
     "./lib/pure.js": "./lib/pure.js",
     "./lib/archive.js": "./lib/archive.js",
     "./locale/*.json": "./locale/*.json"
@@ -29,6 +30,8 @@
     "index.js",
     "lib/pure.js",
     "lib/archive.js",
+    "lib/compact-engine.js",
+    "lib/recall-wire.js",
     "cordis.patch.yml",
     "locale/*.json",
     "README.md",
