@@ -154,6 +154,21 @@ dsh plugin --profile <你的 profile> add git+https://github.com/BTYG123/dsh-mem
 - 继承 `@deepseek-ai/dsh-compaction-basic` 的 `BasicCompactionEngine`：压缩事务（括号锁、收缩校验、表面替换）来自上游，本包只替换触发策略与 `summarize()`。
 - `compactRegion()` 是公开契约，相对稳定；构造函数与基类字段属于实现细节，**上游重构可能导致本包失效**。`peerDependencies` 已 pin 到 `0.2.1-rc.5`。
 
+## 每层可回溯（v0.4+）
+
+睡眠生成的每一层末尾会带一行指针：
+
+`
+## Tier 1 — depth 1
+…该层摘要…
+
+↳ 原文 [memory:order:4120-4380]
+`
+
+区间是该层对应消息在归档里的 order 范围（归档是追加式 JSONL，order 就是行号）。
+用 mem-fetch --order 4120-4380 就能取回原文。**指针由引擎在模型输出后追加**，不是模型写的——
+所以同一份阶梯重读多次，指针仍然指向正确的切片。
+
 ## 已知限制
 
 - **单条超大消息压不动**：一条 5 万 token 的 assistant 输出是不可分割单元，表面压缩无法修复——这是压缩接缝的固有限制，不是本插件引入的。

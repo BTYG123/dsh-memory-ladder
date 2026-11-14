@@ -16,7 +16,7 @@ import z from '@deepseek-ai/schemastery'
 import { BasicCompactionEngine } from '@deepseek-ai/dsh-compaction-basic'
 import { toolPairingBalancedAfter, toolPairingBalancedBefore } from '@deepseek-ai/dsh-compaction'
 import { BlockAssembler, CONTEXT_WINDOW_EXCEEDED_CODE } from '@deepseek-ai/dsh-llm'
-import { boundSpanEnd, estimateText, tierBudgets, trimLadder } from './lib/pure.js'
+import { boundSpanEnd, estimateText, tierBudgets, tierOrderRanges, trimLadder } from './lib/pure.js'
 import { resolve } from 'node:path'
 import { ArchiveStore, recallText } from './lib/archive.js'
 
@@ -339,6 +339,7 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
       if (attempt === 1) break
     }
 
+    text = this._attachTierPointers(text, input, agent)
     text = this._trim(text, total)
     text = this._dropEmptyTiers(text)
     if (text.trim().length === 0) throw new Error('memory-ladder: the sleep request produced no text')
@@ -446,6 +447,36 @@ export default class MemoryLadderEngine extends BasicCompactionEngine {
    * overhead can exceed the whole shadowed span — which the transaction rejects
    * because a checkpoint must be smaller than what it replaces.
    */
+  /**
+   * Append one archive pointer per tier, so a reader can jump from a summary
+   * line back to the messages that fed it. Additive: when the mapping is not
+   * available the ladder is returned untouched.
+   */
+  _attachTierPointers(text, input, agent) {
+    if (!this.archiveOptions.enabled) return text
+    const store = this.archives.get(agent.session)
+    if (store === undefined) return text
+    const orderById = new Map()
+    for (const entry of store.entries) orderById.set(entry.id, entry.order)
+    const orders = []
+    for (const message of input.messages ?? []) {
+      const order = orderById.get(message.id)
+      if (typeof order === 'number') orders.push(order)
+    }
+    if (orders.length === 0) return text
+    const ranges = tierOrderRanges(orders, this.ladder.tierCount)
+    if (ranges.length === 0) return text
+    return text
+      .split(/\n(?=## )/u)
+      .map((section) => {
+        const heading = /^## Tier (\d+)/u.exec(section)
+        if (heading === null) return section
+        const range = ranges[Number(heading[1])]
+        if (range === undefined) return section
+        return `${section.replace(/\s+$/u, '')}\n↳ 原文 [memory:order:${range.min}-${range.max}]`
+      })
+      .join('\n')
+  }
   _dropEmptyTiers(text) {
     const sections = text.split(/\n(?=## )/u)
     const kept = sections.filter((section) => {

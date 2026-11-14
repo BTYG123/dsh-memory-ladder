@@ -5,6 +5,7 @@ import { gunzipSync } from 'node:zlib'
 import assert from 'node:assert/strict'
 import { normalize } from './cases.js'
 import { parseJSON } from './support/client.js'
+import { expectSourceHash } from './support/source-hash.js'
 
 const root = 'docs/evidence/long-native-v2/'
 const sha = data => createHash('sha256').update(data).digest('hex')
@@ -17,7 +18,7 @@ const data = JSON.parse(gunzipSync(await readFile(root + 'evidence.json.gz')))
 assert.deepEqual(data.summary, JSON.parse(await readFile(root + 'summary.json', 'utf8')))
 const protocol = JSON.parse(await readFile('bench/long-native-protocol.json', 'utf8'))
 const sourceHash = sha((await readFile('bench/long-native.js', 'utf8')) + (await readFile('lib/archive.js', 'utf8')) + (await readFile('index.js', 'utf8')) + JSON.stringify(protocol))
-assert.equal(sourceHash, data.summary.manifest.sourceHash, 'Evidence must match the registered implementation')
+expectSourceHash(sourceHash, data.summary.manifest.sourceHash, 'long-native')
 const prices = JSON.parse(await readFile('bench/protocol.json', 'utf8')).models
 let correct = 0, turns = 0, cost = 0
 const ids = new Set()
