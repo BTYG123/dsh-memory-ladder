@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { boundSpanEnd, estimateText, tierBudgets, trimLadder } from '../lib/pure.js'
+import { boundSpanEnd, estimateText, tierBudgets, tierOrderRanges, trimLadder } from '../lib/pure.js'
 
 const ladder = [
   '## Tier 0 — newest\n' + 'a'.repeat(2000),
@@ -55,4 +55,26 @@ test('tierBudgets halves each tier and stops at the floor', () => {
   assert.deepEqual(budgets, [174762, 87381, 43690, 21845, 10922, 5461])
   const capped = tierBudgets(30_000, { newestFraction: 0.01, tierCount: 6, minTierTokens: 100 })
   assert.deepEqual(capped, [150])
+})
+
+test('tierOrderRanges halves newest-first and gives the remainder to the deepest tier', () => {
+  const orders = Array.from({ length: 20 }, (_, index) => index)
+  assert.deepEqual(tierOrderRanges(orders, 4), [
+    { min: 10, max: 19 },
+    { min: 5, max: 9 },
+    { min: 3, max: 4 },
+    { min: 0, max: 2 },
+  ])
+})
+
+test('tierOrderRanges stops when the span runs out', () => {
+  assert.deepEqual(tierOrderRanges([0, 1, 2], 6), [
+    { min: 2, max: 2 },
+    { min: 1, max: 1 },
+    { min: 0, max: 0 },
+  ])
+})
+
+test('tierOrderRanges returns nothing for an empty span', () => {
+  assert.deepEqual(tierOrderRanges([], 4), [])
 })

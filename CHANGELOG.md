@@ -4,6 +4,32 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project uses
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] — 2026-11-14
+
+Per-tier archive pointers, so a summary line can be traced back to its source.
+
+### Added
+
+- Every tier of the ladder now ends with `↳ 原文 [memory:order:<min>-<max>]`.
+  The range covers the messages that fed that tier: the span is split newest-first
+  with the same halving as the tier budgets, so Tier 0 points at the freshest
+  half and the deepest tier receives the remainder.
+- `tierOrderRanges(orders, tierCount)` in `lib/pure.js`, covered by unit tests.
+- The pointer is written by the engine after the model's summary, not by the
+  model: a summary can be re-read verbatim and still resolve to the right slice.
+
+### Changed
+
+- Pointers are attached before budget trimming, so trimming a tier also removes
+  its pointer and the ladder still fits its budget.
+
+### Notes
+
+- Offsets are archive `order` values (the JSONL append index), not session seq:
+  archives written before this release keep working, they simply have no `seq`
+  to point at. Resolve a pointer with `mem-fetch --order <min>-<max>`.
+- The existing `[memory:<sessionId>]` archive link is unchanged; the per-tier
+  pointers sit above it and are a refinement, not a replacement.
 ## [0.3.0] — 2026-11-06
 
 Opt-in retrieval formats and a capacity guard.
@@ -83,6 +109,32 @@ the previous run.
 
 - Holdout evidence covers explicit compaction of synthetic records, not the complete automatic AgentLoop, real repository work or narrative quality. Accuracy gains and cost increases are both retained in the evidence.
 
+## [0.4.0] — 2026-11-14
+
+Per-tier archive pointers, so a summary line can be traced back to its source.
+
+### Added
+
+- Every tier of the ladder now ends with `↳ 原文 [memory:order:<min>-<max>]`.
+  The range covers the messages that fed that tier: the span is split newest-first
+  with the same halving as the tier budgets, so Tier 0 points at the freshest
+  half and the deepest tier receives the remainder.
+- `tierOrderRanges(orders, tierCount)` in `lib/pure.js`, covered by unit tests.
+- The pointer is written by the engine after the model's summary, not by the
+  model: a summary can be re-read verbatim and still resolve to the right slice.
+
+### Changed
+
+- Pointers are attached before budget trimming, so trimming a tier also removes
+  its pointer and the ladder still fits its budget.
+
+### Notes
+
+- Offsets are archive `order` values (the JSONL append index), not session seq:
+  archives written before this release keep working, they simply have no `seq`
+  to point at. Resolve a pointer with `mem-fetch --order <min>-<max>`.
+- The existing `[memory:<sessionId>]` archive link is unchanged; the per-tier
+  pointers sit above it and are a refinement, not a replacement.
 ## [0.3.0] — 2026-11-06
 
 Opt-in retrieval formats and a capacity guard.
