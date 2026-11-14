@@ -8,6 +8,7 @@ import { focusedRecall } from '../lib/focused-recall.js'
 import { compactRecall } from '../lib/recall-wire.js'
 import { factualAudit } from './support/answer-audit.js'
 import { normalize } from './cases.js'
+import { expectSourceHash } from './support/source-hash.js'
 const kind = process.argv.includes('--focused') ? 'focused-gate-v1' : 'dense-gate-v1'
 const root = `docs/evidence/${kind}/`
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -20,7 +21,7 @@ const data = JSON.parse(gunzipSync(await readFile(root + 'evidence.json.gz')))
 const published = JSON.parse(await readFile(root + 'summary.json', 'utf8'))
 assert.deepEqual(published.summary, data.summary)
 assert.deepEqual(published.accounting, data.accounting)
-assert.equal(sha(Buffer.concat(await Promise.all(data.manifest.files.map(f => readFile(f))))), data.manifest.sourceHash)
+expectSourceHash(sha(Buffer.concat(await Promise.all(data.manifest.files.map(f => readFile(f))))), data.manifest.sourceHash, 'dense-gate')
 const fixtures = data.manifest.protocol.seeds.map(seed => denseFixture(seed, data.manifest.protocol.entities))
 assert.equal(sha(JSON.stringify(fixtures)), data.manifest.fixtureHash)
 assert.deepEqual(fixtures, data.fixtures)

@@ -7,6 +7,7 @@ import { compactRecall } from '../lib/recall-wire.js'
 import { normalize } from './cases.js'
 import { parseJSON } from './support/client.js'
 import { factualAudit } from './support/answer-audit.js'
+import { expectSourceHash } from './support/source-hash.js'
 const root = 'docs/evidence/token-gate-v1/'
 const sha = data => createHash('sha256').update(data).digest('hex')
 for (const line of (await readFile(root + 'SHA256SUMS', 'utf8')).trim().split(/\r?\n/u)) {
@@ -18,7 +19,7 @@ const data = JSON.parse(gunzipSync(await readFile(root + 'evidence.json.gz')))
 const published = JSON.parse(await readFile(root + 'summary.json', 'utf8'))
 assert.deepEqual(published.summary, data.summary)
 assert.deepEqual(published.accounting, data.accounting)
-assert.equal(sha(Buffer.concat(await Promise.all(data.manifest.files.map(f => readFile(f))))), data.manifest.sourceHash)
+expectSourceHash(sha(Buffer.concat(await Promise.all(data.manifest.files.map(f => readFile(f))))), data.manifest.sourceHash, 'token-gate')
 const prices = JSON.parse(await readFile('bench/protocol.json', 'utf8')).models
 let results = 0, calls = 0, cost = 0
 const ids = new Set()

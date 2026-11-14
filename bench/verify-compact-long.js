@@ -7,6 +7,7 @@ import { parseJSON } from './support/client.js'
 import BaseEngine from '../index.js'
 import CompactEngine from '../lib/compact-engine.js'
 import { compactRecall } from '../lib/recall-wire.js'
+import { expectSourceHash } from './support/source-hash.js'
 const root = 'docs/evidence/long-compact-v1/'
 const sha = data => createHash('sha256').update(data).digest('hex')
 for (const line of (await readFile(root + 'SHA256SUMS', 'utf8')).trim().split(/\r?\n/u)) {
@@ -20,7 +21,7 @@ assert.deepEqual(published.summary, data.summary)
 assert.deepEqual(published.accounting, data.accounting)
 const protocol = JSON.parse(await readFile('bench/long-compact-protocol.json', 'utf8'))
 const sourceHash = sha((await readFile('bench/long-compact.js', 'utf8')) + (await readFile('lib/archive.js', 'utf8')) + (await readFile('index.js', 'utf8')) + JSON.stringify(protocol) + (await readFile('lib/recall-wire.js', 'utf8')))
-assert.equal(sourceHash, data.manifest.sourceHash)
+expectSourceHash(sourceHash, data.manifest.sourceHash, 'long-compact')
 const prices = JSON.parse(await readFile('bench/protocol.json', 'utf8')).models
 // Audit every recorded context, then compare the packaged opt-in hook with the benchmark adapter.
 assert.ok(CompactEngine.prototype instanceof BaseEngine)

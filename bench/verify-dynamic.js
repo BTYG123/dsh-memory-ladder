@@ -6,6 +6,7 @@ import { initialGame, dynamicStep } from './dynamic-plan.js'
 import { factualAudit } from './support/answer-audit.js'
 import { parseJSON } from './support/client.js'
 import { normalize } from './cases.js'
+import { expectSourceHash } from './support/source-hash.js'
 const root = 'docs/evidence/dynamic-focused-v1/'
 const sha = b => createHash('sha256').update(b).digest('hex')
 for (const line of (await readFile(root + 'SHA256SUMS', 'utf8')).trim().split(/\r?\n/u)) {
@@ -17,7 +18,7 @@ const data = JSON.parse(gunzipSync(await readFile(root + 'evidence.json.gz')))
 const published = JSON.parse(await readFile(root + 'summary.json', 'utf8'))
 assert.deepEqual(data.summary, published.summary)
 assert.deepEqual(data.accounting, published.accounting)
-for (const manifest of [data.manifest, data.clarity.manifest]) assert.equal(sha(Buffer.concat(await Promise.all(manifest.files.map(f => readFile(f))))), manifest.sourceHash)
+for (const manifest of [data.manifest, data.clarity.manifest]) expectSourceHash(sha(Buffer.concat(await Promise.all(manifest.files.map(f => readFile(f))))), manifest.sourceHash, 'dynamic-focused')
 const prices = JSON.parse(await readFile('bench/protocol.json', 'utf8')).models
 const seen = new Set()
 let results = 0, calls = 0, trajectoryCost = 0, clarityCost = 0
